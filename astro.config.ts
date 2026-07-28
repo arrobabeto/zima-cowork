@@ -8,9 +8,14 @@ import { DEFAULT_LOCALE, LOCALES } from "./src/config/locales"
 // `astro:env` is a virtual module and is unavailable here, so this file reads
 // process.env directly. See docs/DEVIATIONS.md V-03.
 const renderMode = process.env["RENDER_MODE"] === "static" ? "static" : "server"
+const siteUrl =
+  process.env["PUBLIC_SITE_URL"] ??
+  (process.env["VERCEL_PROJECT_PRODUCTION_URL"]
+    ? `https://${process.env["VERCEL_PROJECT_PRODUCTION_URL"]}`
+    : "http://localhost:4321")
 
 export default defineConfig({
-  site: process.env["PUBLIC_SITE_URL"] ?? "http://localhost:4321",
+  site: siteUrl,
   output: renderMode,
   adapter: vercel(),
 
@@ -94,7 +99,11 @@ export default defineConfig({
         optional: true,
       }),
 
-      PUBLIC_SITE_URL: envField.string({ context: "client", access: "public" }),
+      PUBLIC_SITE_URL: envField.string({
+        context: "client",
+        access: "public",
+        default: siteUrl,
+      }),
       PUBLIC_SITE_NAME: envField.string({
         context: "client",
         access: "public",
