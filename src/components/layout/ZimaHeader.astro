@@ -12,7 +12,7 @@ interface Props {
 
 const { active = "", solid = false } = Astro.props
 
-const defaultNavItems: NavItem[] = [
+const navItems: NavItem[] = [
   { label: "Inicio", href: "/", key: "inicio" },
   { label: "Espacios", href: "/espacios", key: "espacios" },
   {
@@ -23,26 +23,6 @@ const defaultNavItems: NavItem[] = [
   { label: "Membresías", href: "/membresias", key: "membresias" },
   { label: "Comunidad", href: "/comunidad", key: "comunidad" },
 ]
-
-const membershipNavOrder = [
-  "inicio",
-  "membresias",
-  "espacios",
-  "podcast",
-  "comunidad",
-]
-const navItems: NavItem[] =
-  active === "membresias"
-    ? [...defaultNavItems].sort(
-        (a, b) =>
-          membershipNavOrder.indexOf(a.key) - membershipNavOrder.indexOf(b.key),
-      )
-    : active === "reservar"
-      ? [
-          ...defaultNavItems,
-          { label: "Reservar", href: "/reservar", key: "reservar" },
-        ]
-      : defaultNavItems
 ---
 
 <header class:list={["zima-header", { "is-solid": solid }]}>
