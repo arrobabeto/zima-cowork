@@ -1,0 +1,209 @@
+---
+// SectionZimaCommunity.astro
+//
+// Figma source: zima-comunidad-desktop, node 18:1178.
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const vibePhotos = [
+  {
+    src: "/images/zima/community-vibe-1.jpg",
+    alt: "Café y herramientas de trabajo de la comunidad ZIMA",
+  },
+  {
+    src: "/images/zima/community-vibe-2.jpg",
+    alt: "Espacio de cowork y colaboración en ZIMA",
+  },
+  {
+    src: "/images/zima/community-vibe-3.jpg",
+    alt: "Granos de café de especialidad",
+  },
+]
+
+const resources = [
+  {
+    image: "/images/zima/community-card-members.png",
+    title: "Historias de miembros",
+    text: "Descubre a las personas que hacen vida en ZIMA: sus proyectos, sus retos diarios y cómo colaboran en San Luis Potosí.",
+  },
+  {
+    image: "/images/zima/community-card-networking.png",
+    title: "Eventos de networking",
+    text: "Cenas de creadores, charlas informales y mixers de comunidad diseñados para conectar ideas y talentos locales.",
+  },
+  {
+    image: "/images/zima/community-card-tips.png",
+    title: "Tips para trabajar mejor",
+    text: "Artículos prácticos y rutinas de concentración compartidas por nuestra comunidad de freelancers y emprendedores.",
+  },
+  {
+    image: "/images/zima/community-card-podcast.png",
+    title: "Guías para grabar podcast",
+    text: "Aprende a estructurar tus episodios, modular tu voz y producir contenidos sonoros profesionales desde nuestro estudio.",
+  },
+  {
+    image: "/images/zima/community-card-entrepreneurs.png",
+    title: "Recursos para emprendedores en SLP",
+    text: "Herramientas, contactos clave y mapas de ecosistema para arrancar tu marca o escalar tu empresa con éxito.",
+  },
+  {
+    image: "/images/zima/community-card-coming-soon.png",
+    title: "Próximamente...",
+    text: "Nuevos talleres, programas formativos y recursos descargables que se están cocinando ahora mismo en ZIMA.",
+  },
+]
+
+const faqs = [
+  {
+    question: "¿Necesito ser miembro para participar en la comunidad?",
+    answer:
+      "Algunas actividades pueden estar abiertas al público y otras reservadas para miembros. ZIMA puede comunicar cada evento con sus condiciones específicas.",
+  },
+  {
+    question: "¿Qué es De Cero a la ZIMA?",
+    answer:
+      "Es una iniciativa de contenido y comunidad para compartir historias, aprendizajes y conversaciones con personas que están creando proyectos.",
+  },
+]
+---
+
+<div class="zima-community-page" lang="es" data-locale={locale}>
+  <ZimaHeader active="comunidad" solid />
+
+  <main>
+    <section class="zima-community-hero">
+      <div class="zima-community-hero-content">
+        <p class="zima-eyebrow">Comunidad ZIMA y Redes de Creadores</p>
+        <h1>Una comunidad para quienes están construyendo algo</h1>
+        <p class="zima-community-hero-lead">
+          ZIMA es más que un lugar para sentarte a trabajar. Es un punto de
+          encuentro para freelancers, emprendedores, equipos, marcas y creadores
+          que buscan avanzar rodeados de personas con ideas en movimiento.
+        </p>
+        <div class="zima-community-hero-actions">
+          <a class="zima-community-button is-lime" href="/membresias">
+            Unirme a ZIMA
+          </a>
+          <a class="zima-community-light-link" href="#eventos">
+            Ver eventos y recursos <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-community-vibe">
+      <div class="zima-community-vibe-heading">
+        <p class="zima-eyebrow">Sinergia Diaria</p>
+        <h2>Trabajar acompañado también cambia la energía del día</h2>
+        <p>
+          En ZIMA puedes llegar con tu computadora, pedir café, concentrarte y
+          al mismo tiempo estar cerca de personas que también están creando,
+          vendiendo, diseñando, dirigiendo o empezando algo nuevo.
+        </p>
+      </div>
+      <div class="zima-community-vibe-grid">
+        {
+          vibePhotos.map((photo) => (
+            <img src={photo.src} alt={photo.alt} loading="lazy" />
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="de-cero-a-la-zima" class="zima-community-editorial">
+      <div class="zima-community-editorial-copy">
+        <div>
+          <p class="zima-eyebrow">Iniciativa de Comunidad</p>
+          <h2>De Cero a la ZIMA</h2>
+          <p>
+            De Cero a la ZIMA es el espacio para contar historias, aprendizajes
+            y procesos de personas que están construyendo proyectos desde San
+            Luis Potosí. Puede vivir como contenido editorial, entrevistas,
+            podcast, eventos o una serie de comunidad.
+          </p>
+        </div>
+        <a class="zima-community-text-link" href="#eventos">
+          Conocer De Cero a la ZIMA <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <img
+        src="/images/zima/community-editorial.jpg"
+        alt="Persona trabajando en una computadora junto a una taza de café"
+        loading="lazy"
+      />
+    </section>
+
+    <section id="eventos" class="zima-community-resources">
+      <div class="zima-community-resources-heading">
+        <p class="zima-eyebrow">Eventos e Ideas</p>
+        <h2>Eventos, ideas y recursos para crecer en comunidad</h2>
+        <p>
+          Esta sección puede reunir próximos eventos, artículos, entrevistas,
+          guías, conversaciones y contenido útil para emprendedores,
+          freelancers, creadores y equipos locales.
+        </p>
+      </div>
+      <div class="zima-community-resources-grid">
+        {
+          resources.map((resource) => (
+            <article>
+              <img src={resource.image} alt="" loading="lazy" />
+              <div class="zima-community-resource-content">
+                <span>Contenido en desarrollo</span>
+                <div>
+                  <h3>{resource.title}</h3>
+                  <p>{resource.text}</p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="zima-community-faq">
+      <h2>Preguntas frecuentes sobre la comunidad</h2>
+      <div class="zima-community-faq-list">
+        {
+          faqs.map((faq) => (
+            <article>
+              <div>
+                <h3>{faq.question}</h3>
+                <span aria-hidden="true">+</span>
+              </div>
+              <p>{faq.answer}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="zima-community-cta">
+      <div class="zima-community-cta-copy">
+        <h2>
+          El mejor momento para unirte es cuando ya tienes algo entre manos
+        </h2>
+        <p>
+          Trabaja, crea y conecta con personas que también están construyendo.
+        </p>
+      </div>
+      <div class="zima-community-cta-actions">
+        <a class="zima-community-button is-lime" href="/membresias">
+          Ver membresías
+        </a>
+        <a class="zima-community-button is-outline" href="/reservar">
+          Visitar ZIMA
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <ZimaFooter />
+</div>

@@ -1,0 +1,397 @@
+---
+// SectionZimaMemberships.astro
+//
+// Figma source: zima-membresias-desktop, node 18:811.
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const dayPasses = [
+  {
+    name: "Day Pass Básico",
+    price: "$280 MXN",
+    benefits: [
+      "Café básico de consumo ilimitado",
+      "Internet ilimitado de alta velocidad",
+      "Acceso al área de cowork por un día",
+    ],
+    featured: false,
+  },
+  {
+    name: "Day Pass Premium",
+    price: "$360 MXN",
+    benefits: [
+      "Café premium de consumo ilimitado",
+      "Internet ilimitado de alta velocidad",
+      "Acceso al área de cowork por un día",
+      "Acceso prioritario a barra de café",
+    ],
+    featured: true,
+  },
+]
+
+const memberships = [
+  {
+    name: "Community",
+    price: "$900 MXN",
+    benefits: [
+      "Café básico ilimitado",
+      "Internet ilimitado",
+      "Acceso total al área de cowork",
+      "8 horas mensuales para sala de juntas o podcast",
+    ],
+  },
+  {
+    name: "Freelance",
+    price: "$2,200 MXN",
+    benefits: [
+      "Café premium ilimitado",
+      "Internet ilimitado",
+      "Acceso total al área de cowork",
+      "10 horas mensuales para sala de juntas o podcast",
+      "5% de descuento en panadería",
+    ],
+  },
+  {
+    name: "Socio",
+    price: "$3,500 MXN",
+    benefits: [
+      "Café premium ilimitado",
+      "Internet ilimitado",
+      "Acceso total al área de cowork",
+      "16 horas mensuales para sala de juntas o podcast",
+      "10% de descuento en panadería",
+      "Acceso prioritario a eventos",
+    ],
+  },
+]
+
+const teamBenefits = [
+  "Acceso para hasta 6 personas al cowork",
+  "Internet ilimitado de máxima velocidad",
+  "Café básico incluido ilimitado",
+  "Upgrade a café premium por sólo $20 MXN por persona",
+  "12 horas mensuales para sala de juntas o podcast",
+]
+
+const hourRows = [
+  ["Community", "8 horas", "Sala de juntas o podcast"],
+  ["Freelance", "10 horas", "Sala de juntas o podcast"],
+  ["Networking (Equipos)", "12 horas", "Sala de juntas o podcast"],
+  ["Socio", "16 horas", "Sala de juntas o podcast"],
+]
+
+const hourlyRates = [
+  {
+    name: "Sala de juntas",
+    price: "$200 MXN",
+    benefits: [
+      "Capacidad para hasta 8 personas",
+      "Incluye mobiliario premium, internet, Smart TV y pizarrón",
+      "Servicio de limpieza y soporte técnico",
+      "Coffee break opcional por $60 MXN/persona",
+    ],
+    action: "Reservar sala",
+    href: "/reservar",
+  },
+  {
+    name: "Estudio de podcast",
+    price: "$990 MXN",
+    benefits: [
+      "Equipo profesional para 2 personas",
+      "Consola de grabación integral y tratamiento acústico",
+      "Capacidad máxima de 4 personas en cabina",
+      "Persona adicional por solo $200 MXN",
+    ],
+    action: "Reservar estudio",
+    href: "/estudio-podcast",
+  },
+]
+
+const faqs = [
+  {
+    question: "¿Cuál es la membresía más económica?",
+    answer:
+      "Nuestra membresía Community de $900 MXN/mes es la más accesible. Te da acceso total al cowork con café básico ilimitado, internet ilimitado y una bolsa mensual de 8 horas para usar en sala de juntas o en el estudio de podcast.",
+  },
+  {
+    question: "¿Puedo usar las horas incluidas para grabar podcast?",
+    answer:
+      "Sí. Todas las horas mensuales que incluye tu plan son flexibles; las puedes agendar para el estudio profesional de podcast o para la sala de juntas, según tu necesidad y disponibilidad.",
+  },
+  {
+    question: "¿Cuál es la diferencia entre Day Pass básico y premium?",
+    answer:
+      "El Day Pass Básico ($280 MXN) te incluye café básico ilimitado de consumo local y el uso del cowork por el día. El Day Pass Premium ($360 MXN) te da acceso a café premium preparado de nuestra barra especializada y acceso preferente.",
+  },
+  {
+    question: "¿Hay un plan para equipos?",
+    answer:
+      "Sí, el Plan Networking está diseñado para hasta 6 personas de un mismo equipo por $4,200 MXN/mes. Incluye acceso completo al cowork y 12 horas mensuales para que realicen reuniones o grabaciones de podcast.",
+  },
+]
+---
+
+<div class="zima-memberships-page" lang="es" data-locale={locale}>
+  <ZimaHeader active="membresias" solid />
+
+  <main>
+    <section class="zima-memberships-hero">
+      <div class="zima-memberships-hero-content">
+        <p class="zima-eyebrow">Membresías y accesos flexibles</p>
+        <h1>Membresías y Day Pass para trabajar a tu ritmo</h1>
+        <p class="zima-memberships-hero-lead">
+          En ZIMA puedes venir por un día, elegir una membresía individual o
+          sumar a tu equipo a un espacio de trabajo flexible en San Luis Potosí.
+          Todos los planes están pensados para que tengas café, internet y
+          acceso a espacios profesionales cuando los necesitas.
+        </p>
+        <div class="zima-memberships-hero-actions">
+          <a class="zima-button zima-button-lg zima-button-lime" href="#planes">
+            Comparar planes
+          </a>
+          <a class="zima-memberships-text-link" href="/reservar">
+            Agendar visita <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="day-pass" class="zima-memberships-day-pass">
+      <div class="zima-memberships-section-heading">
+        <p class="zima-eyebrow">Day Pass</p>
+        <h2>Day Pass ZIMA</h2>
+        <p>
+          Ideal si necesitas trabajar fuera de casa, recibir un cambio de
+          ambiente o probar ZIMA antes de elegir una membresía.
+        </p>
+      </div>
+      <div class="zima-memberships-day-grid">
+        {
+          dayPasses.map((plan) => (
+            <article class="zima-memberships-card">
+              <div class="zima-memberships-card-copy">
+                <h3>{plan.name}</h3>
+                <p class="zima-memberships-price">{plan.price}</p>
+                <ul class="zima-memberships-benefits">
+                  {plan.benefits.map((benefit) => (
+                    <li>
+                      <span aria-hidden="true">✓</span>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a
+                class:list={[
+                  "zima-memberships-card-button",
+                  { "is-featured": plan.featured },
+                ]}
+                href="/reservar"
+              >
+                Comprar Day Pass
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="planes" class="zima-memberships-individual">
+      <div class="zima-memberships-section-heading">
+        <p class="zima-eyebrow">Planes mensuales</p>
+        <h2>Membresías individuales</h2>
+        <p>
+          Para quienes trabajan de forma recurrente y quieren tener un espacio
+          cómodo, profesional y flexible durante el mes.
+        </p>
+      </div>
+      <div class="zima-memberships-plan-grid">
+        {
+          memberships.map((plan) => (
+            <article class="zima-memberships-card">
+              <div class="zima-memberships-card-copy">
+                <h3>{plan.name}</h3>
+                <p class="zima-memberships-price">
+                  {plan.price}
+                  <span>/mes</span>
+                </p>
+                <ul class="zima-memberships-benefits">
+                  {plan.benefits.map((benefit) => (
+                    <li>
+                      <span aria-hidden="true">✓</span>
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a class="zima-memberships-card-button" href="/reservar">
+                Contratar plan
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="zima-memberships-team">
+      <div class="zima-memberships-section-heading">
+        <p class="zima-eyebrow">Planes para equipos</p>
+        <h2>Plan Networking para equipos</h2>
+        <p>
+          Para equipos pequeños que necesitan un espacio flexible para trabajar,
+          reunirse y crear contenido sin rentar una oficina tradicional.
+        </p>
+      </div>
+      <article class="zima-memberships-team-card">
+        <div class="zima-memberships-team-copy">
+          <div>
+            <h3>Plan: Networking</h3>
+            <p class="zima-memberships-price">
+              $4,200 MXN<span>/mes</span>
+            </p>
+          </div>
+          <p>
+            La mejor alternativa para mantener a tu equipo conectado y operativo
+            con recursos profesionales premium compartidos.
+          </p>
+          <a class="zima-memberships-card-button is-dark" href="/reservar">
+            Solicitar plan para equipo
+          </a>
+        </div>
+        <div class="zima-memberships-team-benefits">
+          <h4>¿Qué incluye este plan?</h4>
+          <ul class="zima-memberships-benefits">
+            {
+              teamBenefits.map((benefit) => (
+                <li>
+                  <span aria-hidden="true">✓</span>
+                  <span>{benefit}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="zima-memberships-hours">
+      <div class="zima-memberships-section-heading">
+        <p class="zima-eyebrow">Bolsa de horas</p>
+        <h2>Usa tus horas en sala de juntas o podcast</h2>
+        <p>
+          Las membresías ZIMA incluyen una bolsa mensual de horas que puedes
+          utilizar en la sala de juntas o en el estudio profesional de podcast,
+          según tu plan y disponibilidad.
+        </p>
+      </div>
+      <div class="zima-memberships-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Membresía / Plan</th>
+              <th>Bolsa Mensual</th>
+              <th>Destinado para</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              hourRows.map((row) => (
+                <tr>
+                  <td>{row[0]}</td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="zima-memberships-table-note">
+        <span aria-hidden="true">ⓘ</span>
+        Las horas están sujetas a disponibilidad y proceso de reservación de ZIMA.
+      </p>
+    </section>
+
+    <section class="zima-memberships-rates">
+      <div class="zima-memberships-section-heading is-compact">
+        <p class="zima-eyebrow">Sin membresía</p>
+        <h2>También puedes reservar espacios por hora</h2>
+      </div>
+      <div class="zima-memberships-rates-grid">
+        {
+          hourlyRates.map((rate) => (
+            <article class="zima-memberships-rate-card">
+              <div class="zima-memberships-rate-title">
+                <h3>{rate.name}</h3>
+                <p class="zima-memberships-price">
+                  {rate.price}
+                  <span>/hora</span>
+                </p>
+              </div>
+              <ul class="zima-memberships-benefits">
+                {rate.benefits.map((benefit) => (
+                  <li>
+                    <span aria-hidden="true">✓</span>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <div class="zima-memberships-rate-action">
+                <a
+                  class="zima-memberships-card-button is-dark"
+                  href={rate.href}
+                >
+                  {rate.action}
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="zima-memberships-faq">
+      <h2>Preguntas frecuentes sobre membresías</h2>
+      <div class="zima-memberships-faq-list">
+        {
+          faqs.map((faq) => (
+            <article>
+              <div>
+                <h3>{faq.question}</h3>
+                <span aria-hidden="true">+</span>
+              </div>
+              <p>{faq.answer}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="zima-memberships-cta">
+      <div class="zima-memberships-cta-copy">
+        <h2>Encuentra el plan ideal para tu forma de trabajar</h2>
+        <p>
+          Compara, visita o pregunta — el equipo de ZIMA te ayuda a elegir la
+          mejor opción para ti o tu empresa.
+        </p>
+      </div>
+      <div class="zima-memberships-cta-actions">
+        <a class="zima-button zima-button-lg zima-button-lime" href="/reservar">
+          Agendar visita
+        </a>
+        <a class="zima-memberships-light-link" href="/reservar">
+          Contactar por WhatsApp <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <ZimaFooter />
+</div>

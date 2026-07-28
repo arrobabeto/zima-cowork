@@ -1,0 +1,413 @@
+---
+// SectionZimaReserve.astro
+//
+// Figma source: zima-reservar-desktop, node 18:1356.
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const reservationOptions = [
+  {
+    icon: "briefcase",
+    title: "Day Pass",
+    image: "/images/zima/reserve-day-pass.png",
+    alt: "Espacio de cowork ZIMA para reservar un Day Pass",
+    description:
+      "Ven a trabajar por un día con café e internet ilimitado de alta velocidad en un ambiente diseñado para enfocarte.",
+    action: "Reservar Day Pass",
+  },
+  {
+    icon: "users",
+    title: "Sala de juntas",
+    image: "/images/zima/reserve-meeting-room.png",
+    alt: "Mesa de trabajo con computadora y café en ZIMA",
+    description:
+      "Reserva una sala para hasta 8 personas con Smart TV de alta definición, pizarrón de cristal, internet dedicado y servicio de cafetería.",
+    action: "Reservar sala",
+  },
+  {
+    icon: "microphone",
+    title: "Estudio de podcast",
+    image: "/images/zima/reserve-podcast.png",
+    alt: "Micrófonos del estudio de podcast de ZIMA",
+    description:
+      "Graba contenido en un estudio profesional acústicamente acondicionado con equipo Shure y consola Rodecaster Pro II.",
+    action: "Reservar podcast",
+  },
+  {
+    icon: "calendar",
+    title: "Visita a ZIMA",
+    image: "/images/zima/reserve-visit.png",
+    alt: "Recepción y espacios interiores de ZIMA",
+    description:
+      "Conoce el espacio, resuelve tus dudas y encuentra la mejor modalidad o membresía de cowork para ti o tu equipo de trabajo.",
+    action: "Agendar visita",
+  },
+]
+
+const tabs = [
+  "Day Pass",
+  "Sala de juntas",
+  "Estudio de podcast",
+  "Visita guiada",
+]
+
+const calendarDays = [
+  { value: "28", muted: true },
+  { value: "29", muted: true },
+  { value: "30", muted: true },
+  { value: "1" },
+  { value: "2" },
+  { value: "3" },
+  { value: "4" },
+  { value: "5" },
+  { value: "6" },
+  { value: "7" },
+  { value: "8" },
+  { value: "9" },
+  { value: "10" },
+  { value: "11" },
+  { value: "12" },
+  { value: "13" },
+  { value: "14", unavailable: true },
+  { value: "15", unavailable: true },
+  { value: "16", unavailable: true },
+  { value: "17" },
+  { value: "18" },
+  { value: "19" },
+  { value: "20" },
+  { value: "21" },
+  { value: "22", selected: true },
+  { value: "23" },
+  { value: "24" },
+  { value: "25" },
+]
+
+const times = ["09:00 AM", "10:30 AM", "12:00 PM", "02:30 PM", "04:00 PM"]
+
+const agendaStates = [
+  {
+    className: "is-available",
+    title: "Disponible",
+    text: "Múltiples horarios libres para reservar hoy.",
+  },
+  {
+    className: "is-limited",
+    title: "Pocos horarios disponibles",
+    text: "Día con alta demanda, te recomendamos agendar pronto.",
+  },
+  {
+    className: "is-unavailable",
+    title: "Sin horarios disponibles",
+    text: "Todos los espacios están reservados para esta fecha.",
+  },
+]
+
+const faqs = [
+  {
+    question: "¿Necesito reservar antes de ir?",
+    answer:
+      "Para salas de juntas y el estudio de podcast se recomienda reservar con anticipación debido a la alta demanda de horarios específicos. Para venir a trabajar con un Day Pass de cowork, ZIMA puede confirmar disponibilidad a través del calendario o por WhatsApp antes de tu llegada.",
+    open: true,
+  },
+  {
+    question: "¿Puedo reservar el estudio si no soy miembro?",
+    answer:
+      "Sí. Puedes reservar el estudio de podcast aunque no tengas una membresía activa en ZIMA.",
+  },
+  {
+    question: "¿Dónde está ZIMA?",
+    answer:
+      "Estamos en Av. Sierra Vista 614, Lomas 4ta Sección, San Luis Potosí.",
+  },
+]
+---
+
+<div class="zima-reserve-page" lang="es" data-locale={locale}>
+  <ZimaHeader active="reservar" solid />
+
+  <main>
+    <section class="zima-reserve-hero">
+      <div class="zima-reserve-hero-copy">
+        <p class="zima-eyebrow">Planifica tu día en ZIMA</p>
+        <h1>Reserva tu espacio en ZIMA</h1>
+        <p>
+          Elige qué necesitas reservar: un Day Pass para trabajar, una sala de
+          juntas, el estudio de podcast o una visita para conocer ZIMA.
+          Encuentra la opción ideal y asegura tu lugar hoy mismo.
+        </p>
+      </div>
+      <a class="zima-reserve-primary-button" href="#opciones">
+        Elegir reservación
+      </a>
+    </section>
+
+    <section id="opciones" class="zima-reserve-options">
+      <div class="zima-reserve-options-heading">
+        <p class="zima-eyebrow">Opciones disponibles</p>
+        <h2>¿Qué quieres reservar?</h2>
+      </div>
+      <div class="zima-reserve-option-grid">
+        {
+          reservationOptions.map((option, index) => (
+            <article class="zima-reserve-option-card">
+              <div class="zima-reserve-option-title">
+                <span class="zima-reserve-option-icon" aria-hidden="true">
+                  {option.icon === "briefcase" && (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7m-9 0h10a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm-2 5h14M10 12v2h4v-2" />
+                    </svg>
+                  )}
+                  {option.icon === "users" && (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19m6-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7-1a2.5 2.5 0 0 0 0-5m2.5 14v-1.5a3.5 3.5 0 0 0-2.5-3.38" />
+                    </svg>
+                  )}
+                  {option.icon === "microphone" && (
+                    <svg viewBox="0 0 24 24">
+                      <rect x="8" y="3" width="8" height="12" rx="4" />
+                      <path d="M5 11a7 7 0 0 0 14 0m-7 7v3m-4 0h8" />
+                    </svg>
+                  )}
+                  {option.icon === "calendar" && (
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3.5" y="5.5" width="17" height="15" rx="2" />
+                      <path d="M8 3v5m8-5v5M3.5 10h17M8 14h2m4 0h2m-8 3h2m4 0h2" />
+                    </svg>
+                  )}
+                </span>
+                <h3>{option.title}</h3>
+              </div>
+              <img
+                src={option.image}
+                alt={option.alt}
+                loading={index < 2 ? "eager" : "lazy"}
+              />
+              <p>{option.description}</p>
+              <a href="#calendario">{option.action}</a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="calendario" class="zima-reserve-calendar-section">
+      <div class="zima-reserve-calendar-heading">
+        <p class="zima-eyebrow">Disponibilidad en tiempo real</p>
+        <h2>Selecciona fecha y horario</h2>
+        <p>
+          Aquí se integra Calendly con calendarios separados para cada tipo de
+          reservación. Elige tu modalidad abajo para consultar los espacios
+          disponibles de forma inmediata.
+        </p>
+      </div>
+
+      <div
+        class="zima-reserve-tabs"
+        role="tablist"
+        aria-label="Tipo de reservación"
+      >
+        {
+          tabs.map((tab, index) => (
+            <button
+              type="button"
+              role="tab"
+              aria-selected={index === 0 ? "true" : "false"}
+              class:list={{ "is-active": index === 0 }}
+            >
+              {tab}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="zima-reserve-calendar-layout">
+        <div
+          class="zima-reserve-calendar-card"
+          aria-label="Calendario de octubre de 2025"
+        >
+          <div class="zima-reserve-calendar-top">
+            <h3>Octubre 2025</h3>
+            <div>
+              <button type="button" aria-label="Mes anterior">←</button>
+              <button type="button" aria-label="Mes siguiente">→</button>
+            </div>
+          </div>
+          <div class="zima-reserve-calendar-grid">
+            <div class="zima-reserve-weekdays" aria-hidden="true">
+              {
+                ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sá"].map((day) => (
+                  <span>{day}</span>
+                ))
+              }
+            </div>
+            <div class="zima-reserve-days">
+              {
+                calendarDays.map((day) => (
+                  <button
+                    type="button"
+                    class:list={{
+                      "is-muted": day.muted,
+                      "is-unavailable": day.unavailable,
+                      "is-selected": day.selected,
+                    }}
+                    aria-pressed={day.selected ? "true" : "false"}
+                  >
+                    {day.value}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+          <div class="zima-reserve-times">
+            <p>Horarios disponibles para el Miércoles 22 de Octubre:</p>
+            <div>
+              {
+                times.map((time, index) => (
+                  <button
+                    type="button"
+                    class:list={{ "is-selected": index === 1 }}
+                    aria-pressed={index === 1 ? "true" : "false"}
+                  >
+                    {time}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <aside class="zima-reserve-agenda">
+          <div class="zima-reserve-agenda-card">
+            <h3>Estado de la Agenda</h3>
+            {
+              agendaStates.map((state) => (
+                <div
+                  class:list={["zima-reserve-agenda-state", state.className]}
+                >
+                  <span aria-hidden="true" />
+                  <div>
+                    <h4>{state.title}</h4>
+                    <p>{state.text}</p>
+                  </div>
+                </div>
+              ))
+            }
+            <div class="zima-reserve-calendar-error">
+              <div>
+                <span aria-hidden="true"></span>
+                <h4>¿No pudimos cargar la agenda?</h4>
+              </div>
+              <p>
+                Ocurrió un problema de conexión al conectar con Calendly. Puedes
+                reintentar o escribirnos directamente.
+              </p>
+              <div class="zima-reserve-error-actions">
+                <button type="button">Reintentar</button>
+                <a href="#visitanos">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+          <div class="zima-reserve-agenda-notes">
+            <a href="#opciones">
+              <span aria-hidden="true">←</span> Volver a opciones de reservación
+            </a>
+            <p>
+              Aviso de privacidad: Al agendar una cita o reservar un espacio,
+              tus datos de contacto serán procesados únicamente para confirmar
+              la reservación y brindarte asistencia el día de tu visita.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="visitanos" class="zima-reserve-visit">
+      <div class="zima-reserve-visit-heading">
+        <p class="zima-eyebrow">Encuéntranos en San Luis Potosí</p>
+        <h2>Visítanos en Lomas 4ta Sección</h2>
+        <p>
+          ZIMA se encuentra en Av. Sierra Vista 614, Lomas 4ta Sección, San Luis
+          Potosí. Agenda tu visita o escríbenos para confirmar disponibilidad
+          antes de llegar.
+        </p>
+      </div>
+      <div class="zima-reserve-visit-layout">
+        <div class="zima-reserve-map">
+          <img
+            src="/images/zima/reserve-map.png"
+            alt="Mapa de la ubicación de ZIMA en Lomas 4ta Sección"
+            loading="lazy"
+          />
+          <div>
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"
+                ></path>
+                <circle cx="12" cy="9" r="2.5"></circle>
+              </svg>
+            </span>
+            <strong>Av. Sierra Vista 614, SLP</strong>
+          </div>
+        </div>
+        <div class="zima-reserve-contact">
+          <dl>
+            <div>
+              <dt>Dirección</dt>
+              <dd>Av. Sierra Vista 614, Lomas 4ta Sección, San Luis Potosí</dd>
+            </div>
+            <div>
+              <dt>Horarios de atención</dt>
+              <dd>
+                Lunes a Viernes: 8:00 AM - 8:00 PM • Sábados: 9:00 AM - 2:00 PM
+              </dd>
+            </div>
+            <div>
+              <dt>Canal de WhatsApp</dt>
+              <dd>WhatsApp: +52 444 ZIMA_WP (Respuestas en menos de 10 min)</dd>
+            </div>
+            <div>
+              <dt>Correo Electrónico</dt>
+              <dd>contacto@zimacowork.mx</dd>
+            </div>
+            <div>
+              <dt>Redes Sociales</dt>
+              <dd>Instagram: @zima.cowork • Facebook: /zimacowork</dd>
+            </div>
+          </dl>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Av.+Sierra+Vista+614%2C+Lomas+4ta+Secci%C3%B3n%2C+San+Luis+Potos%C3%AD"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-reserve-faq">
+      <h2>Preguntas frecuentes sobre reservaciones</h2>
+      <div class="zima-reserve-faq-list">
+        {
+          faqs.map((faq) => (
+            <details open={faq.open}>
+              <summary>
+                <h3>{faq.question}</h3>
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+
+  <ZimaFooter />
+</div>

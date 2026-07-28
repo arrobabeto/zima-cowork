@@ -1,0 +1,65 @@
+---
+type NavItem = {
+  label: string
+  href: string
+  key: string
+}
+
+interface Props {
+  active?: string
+  solid?: boolean
+}
+
+const { active = "", solid = false } = Astro.props
+
+const defaultNavItems: NavItem[] = [
+  { label: "Inicio", href: "/", key: "inicio" },
+  { label: "Espacios", href: "/espacios", key: "espacios" },
+  {
+    label: "Estudio de podcast",
+    href: "/estudio-podcast",
+    key: "podcast",
+  },
+  { label: "Membresías", href: "/membresias", key: "membresias" },
+  { label: "Comunidad", href: "/comunidad", key: "comunidad" },
+]
+
+const membershipNavOrder = [
+  "inicio",
+  "membresias",
+  "espacios",
+  "podcast",
+  "comunidad",
+]
+const navItems: NavItem[] =
+  active === "membresias"
+    ? [...defaultNavItems].sort(
+        (a, b) =>
+          membershipNavOrder.indexOf(a.key) - membershipNavOrder.indexOf(b.key),
+      )
+    : active === "reservar"
+      ? [
+          ...defaultNavItems,
+          { label: "Reservar", href: "/reservar", key: "reservar" },
+        ]
+      : defaultNavItems
+---
+
+<header class:list={["zima-header", { "is-solid": solid }]}>
+  <div class="zima-header-inner">
+    <a class="zima-logo" href="/" aria-label="ZIMA, inicio">
+      <span class="zima-logo-mark">Z</span>
+      <span class="zima-logo-name">ZIMA</span>
+    </a>
+    <nav class="zima-nav" aria-label="Navegación principal">
+      {
+        navItems.map((item) => (
+          <a class:list={{ "is-active": item.key === active }} href={item.href}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a class="zima-nav-cta" href="/reservar">Reservar</a>
+  </div>
+</header>

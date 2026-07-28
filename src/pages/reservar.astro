@@ -1,0 +1,49 @@
+---
+import Base from "~/layouts/Base.astro"
+import SectionZimaReserve from "~/components/sections/SectionZimaReserve.astro"
+import Seo from "~/components/seo/Seo.astro"
+import type { SeoData } from "~/lib/seo"
+
+const locale = "en" as const
+const title = "Reservar en ZIMA | Coffee + Cowork"
+const description =
+  "Reserva un Day Pass, sala de juntas, estudio de podcast o una visita a ZIMA Cowork en San Luis Potosí."
+const canonical = Astro.url.href
+const ogImage = new URL("/images/zima/reserve-day-pass.png", Astro.url.origin)
+  .href
+const seo: SeoData = {
+  title,
+  description,
+  keywords: [
+    "reservar cowork San Luis Potosí",
+    "Day Pass San Luis Potosí",
+    "reservar sala de juntas",
+    "reservar estudio de podcast",
+  ],
+  canonical,
+  alternates: [
+    { hreflang: "es", href: canonical },
+    { hreflang: "x-default", href: canonical },
+  ],
+  ogTitle: title,
+  ogDescription: description,
+  ogImage,
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterSite: "",
+  twitterCreator: "",
+  jsonLd: {},
+}
+---
+
+<Base
+  locale={locale}
+  htmlLang="es"
+  chrome={false}
+  bodyClass="bg-zima-canvas text-zima-ink"
+>
+  <Fragment slot="head">
+    <Seo {...seo} />
+  </Fragment>
+  <SectionZimaReserve locale={locale} />
+</Base>

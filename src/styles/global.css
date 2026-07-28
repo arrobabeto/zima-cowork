@@ -8,6 +8,635 @@
   src: url("/fonts/manrope-400.ttf") format("truetype");
 }
 
+/*
+ * ZIMA memberships — Figma frame 18:811.
+ *
+ * The desktop section heights add up to the source frame's exact
+ * 1440 × 6104 dimensions, including the shared header and footer.
+ */
+@layer components {
+  .zima-memberships-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-memberships-page main > section {
+    width: 100%;
+  }
+
+  .zima-memberships-hero {
+    height: 531px;
+    padding: 100px 130px 80px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-memberships-hero-content {
+    display: flex;
+    width: 800px;
+    height: 351px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .zima-memberships-hero h1 {
+    width: 800px;
+    height: 120px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 59.8px;
+  }
+
+  .zima-memberships-hero-lead {
+    width: 800px;
+    height: 87px;
+    color: var(--color-zima-muted);
+    font-size: 18px;
+    line-height: 28.8px;
+  }
+
+  .zima-memberships-hero-actions {
+    display: flex;
+    width: 341px;
+    height: 56px;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .zima-memberships-hero-actions .zima-button {
+    width: 188px;
+  }
+
+  .zima-memberships-text-link,
+  .zima-memberships-light-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .zima-memberships-text-link {
+    color: var(--color-zima-ink);
+  }
+
+  .zima-memberships-day-pass {
+    height: 739px;
+    padding: 80px 130px 100px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-memberships-section-heading {
+    display: flex;
+    width: 1180px;
+    height: 151px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-memberships-section-heading h2,
+  .zima-memberships-faq h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 54.64px;
+  }
+
+  .zima-memberships-section-heading > p:last-child {
+    width: 680px;
+    height: 48px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .zima-memberships-day-grid {
+    display: grid;
+    width: 1180px;
+    height: 360px;
+    margin-top: 48px;
+    grid-template-columns: repeat(2, 578px);
+    align-items: start;
+    gap: 24px;
+  }
+
+  .zima-memberships-card,
+  .zima-memberships-rate-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    padding: 32px;
+    background: white;
+  }
+
+  .zima-memberships-day-grid .zima-memberships-card:first-child {
+    height: 328px;
+  }
+
+  .zima-memberships-day-grid .zima-memberships-card:last-child {
+    height: 360px;
+  }
+
+  .zima-memberships-card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-memberships-card h3,
+  .zima-memberships-rate-card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30px;
+  }
+
+  .zima-memberships-price {
+    color: var(--color-zima-brown);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 38px;
+  }
+
+  .zima-memberships-price span {
+    color: var(--color-zima-muted);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .zima-memberships-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+  }
+
+  .zima-memberships-benefits li {
+    display: flex;
+    min-height: 20px;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.6px;
+  }
+
+  .zima-memberships-benefits li > span:first-child {
+    width: 18px;
+    flex: 0 0 18px;
+    color: var(--color-zima-brown);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  .zima-memberships-card-button {
+    display: inline-flex;
+    width: 100%;
+    height: 48px;
+    margin-top: 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--color-zima-surface);
+    color: var(--color-zima-ink);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    text-decoration: none;
+  }
+
+  .zima-memberships-card-button.is-featured {
+    background: var(--color-zima-lime);
+  }
+
+  .zima-memberships-card-button.is-dark {
+    background: var(--color-zima-ink);
+    color: white;
+  }
+
+  .zima-memberships-individual {
+    height: 851px;
+    padding: 100px 130px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-memberships-plan-grid {
+    display: grid;
+    width: 1180px;
+    height: 444px;
+    margin-top: 56px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 24px;
+  }
+
+  .zima-memberships-plan-grid .zima-memberships-card:nth-child(1) {
+    height: 380px;
+  }
+
+  .zima-memberships-plan-grid .zima-memberships-card:nth-child(2) {
+    height: 412px;
+  }
+
+  .zima-memberships-plan-grid .zima-memberships-card:nth-child(3) {
+    height: 444px;
+  }
+
+  .zima-memberships-team {
+    height: 724px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-memberships-team-card {
+    display: grid;
+    width: 1180px;
+    height: 325px;
+    margin-top: 48px;
+    grid-template-columns: repeat(2, 518px);
+    align-items: center;
+    gap: 48px;
+    border: 2px solid var(--color-zima-ink);
+    border-radius: 12px;
+    padding: 46px;
+    background: white;
+  }
+
+  .zima-memberships-team-copy {
+    display: flex;
+    width: 518px;
+    height: 229px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .zima-memberships-team-copy > div {
+    display: flex;
+    height: 87px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zima-memberships-team-copy h3 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 36px;
+  }
+
+  .zima-memberships-team-copy > p {
+    height: 46px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 22.5px;
+  }
+
+  .zima-memberships-team-copy .zima-memberships-card-button {
+    margin-top: 0;
+  }
+
+  .zima-memberships-team-benefits {
+    display: flex;
+    width: 518px;
+    height: 181px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .zima-memberships-team-benefits h4 {
+    color: var(--color-zima-brown);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
+
+  .zima-memberships-hours {
+    height: 725px;
+    padding: 80px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-memberships-table-wrap {
+    width: 1180px;
+    height: 300px;
+    margin-top: 48px;
+    overflow: hidden;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .zima-memberships-table-wrap table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .zima-memberships-table-wrap th,
+  .zima-memberships-table-wrap td {
+    height: 60px;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .zima-memberships-table-wrap th:nth-child(1),
+  .zima-memberships-table-wrap td:nth-child(1) {
+    width: 52.2%;
+  }
+
+  .zima-memberships-table-wrap th:nth-child(2),
+  .zima-memberships-table-wrap td:nth-child(2) {
+    width: 19%;
+  }
+
+  .zima-memberships-table-wrap thead {
+    background: var(--color-zima-surface);
+  }
+
+  .zima-memberships-table-wrap th {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+  }
+
+  .zima-memberships-table-wrap td {
+    border-top: 1px solid var(--color-zima-divider);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .zima-memberships-table-wrap td:nth-child(2) {
+    color: var(--color-zima-brown);
+    font-weight: 700;
+  }
+
+  .zima-memberships-table-wrap td:nth-child(3) {
+    color: var(--color-zima-muted);
+    font-weight: 400;
+    line-height: 19px;
+  }
+
+  .zima-memberships-table-note {
+    display: flex;
+    width: 1180px;
+    height: 18px;
+    margin-top: 48px;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-zima-muted);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .zima-memberships-table-note span {
+    color: var(--color-zima-brown);
+    font-size: 14px;
+  }
+
+  .zima-memberships-rates {
+    height: 701px;
+    padding: 100px 130px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-memberships-section-heading.is-compact {
+    height: 87px;
+  }
+
+  .zima-memberships-rates-grid {
+    display: grid;
+    width: 1180px;
+    height: 358px;
+    margin-top: 56px;
+    grid-template-columns: repeat(2, 578px);
+    gap: 24px;
+  }
+
+  .zima-memberships-rate-card {
+    width: 578px;
+    height: 358px;
+    gap: 24px;
+  }
+
+  .zima-memberships-rate-title {
+    display: flex;
+    height: 80px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .zima-memberships-rate-card > .zima-memberships-benefits {
+    height: 110px;
+    gap: 10px;
+  }
+
+  .zima-memberships-rate-action {
+    height: 56px;
+    padding-top: 8px;
+  }
+
+  .zima-memberships-rate-action .zima-memberships-card-button {
+    margin-top: 0;
+  }
+
+  .zima-memberships-faq {
+    height: 827px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-memberships-faq h2 {
+    width: 1180px;
+    height: 55px;
+  }
+
+  .zima-memberships-faq-list {
+    width: 1180px;
+    height: 516px;
+    margin-top: 56px;
+  }
+
+  .zima-memberships-faq-list article {
+    height: 129px;
+    border-bottom: 1px solid var(--color-zima-sand);
+    padding: 20px 0;
+  }
+
+  .zima-memberships-faq-list article > div {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zima-memberships-faq-list h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .zima-memberships-faq-list article > div > span {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 25px;
+  }
+
+  .zima-memberships-faq-list article > p {
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .zima-memberships-cta {
+    display: flex;
+    height: 426px;
+    padding: 100px 130px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-zima-ink);
+    color: white;
+    text-align: center;
+  }
+
+  .zima-memberships-cta-copy {
+    display: flex;
+    width: 800px;
+    height: 138px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .zima-memberships-cta h2 {
+    width: 800px;
+    height: 96px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 48px;
+  }
+
+  .zima-memberships-cta-copy p {
+    height: 26px;
+    color: var(--color-zima-canvas);
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  .zima-memberships-cta-actions {
+    display: flex;
+    width: 390px;
+    height: 56px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .zima-memberships-cta-actions .zima-button {
+    width: 169px;
+  }
+
+  .zima-memberships-light-link {
+    color: white;
+  }
+
+  @media (max-width: 900px) {
+    .zima-memberships-hero,
+    .zima-memberships-day-pass,
+    .zima-memberships-individual,
+    .zima-memberships-team,
+    .zima-memberships-hours,
+    .zima-memberships-rates,
+    .zima-memberships-faq,
+    .zima-memberships-cta {
+      height: auto;
+      padding: 56px 20px;
+    }
+
+    .zima-memberships-hero-content,
+    .zima-memberships-hero h1,
+    .zima-memberships-hero-lead,
+    .zima-memberships-section-heading,
+    .zima-memberships-section-heading > p:last-child,
+    .zima-memberships-day-grid,
+    .zima-memberships-plan-grid,
+    .zima-memberships-team-card,
+    .zima-memberships-team-copy,
+    .zima-memberships-team-benefits,
+    .zima-memberships-table-wrap,
+    .zima-memberships-table-note,
+    .zima-memberships-rates-grid,
+    .zima-memberships-rate-card,
+    .zima-memberships-faq h2,
+    .zima-memberships-faq-list,
+    .zima-memberships-cta-copy,
+    .zima-memberships-cta h2,
+    .zima-memberships-cta-actions {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-memberships-hero h1,
+    .zima-memberships-section-heading h2,
+    .zima-memberships-faq h2,
+    .zima-memberships-cta h2 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .zima-memberships-hero-actions,
+    .zima-memberships-cta-actions {
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+    }
+
+    .zima-memberships-day-grid,
+    .zima-memberships-plan-grid,
+    .zima-memberships-rates-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+
+    .zima-memberships-day-grid .zima-memberships-card,
+    .zima-memberships-plan-grid .zima-memberships-card,
+    .zima-memberships-rate-card {
+      width: 100%;
+      height: auto;
+      min-height: 328px;
+    }
+
+    .zima-memberships-team-card {
+      grid-template-columns: 1fr;
+      padding: 32px 24px;
+    }
+
+    .zima-memberships-table-wrap {
+      overflow-x: auto;
+    }
+
+    .zima-memberships-table-wrap table {
+      min-width: 760px;
+    }
+
+    .zima-memberships-faq-list article {
+      height: auto;
+      min-height: 129px;
+    }
+
+    .zima-memberships-cta-actions .zima-button {
+      width: 100%;
+    }
+  }
+}
+
 @font-face {
   font-family: "Manrope";
   font-style: normal;
@@ -69,10 +698,932 @@
   --color-zima-border: #b8aa98;
   --color-zima-divider: #d4c9ba;
   --color-zima-muted: #666b6e;
+  --color-zima-chip: #f2f2f2;
   --color-zima-error: #ef4444;
   --color-zima-error-surface: #fef2f2;
+  --color-zima-success: #4ade80;
+  --color-zima-warning: #facc15;
+  --color-zima-error-soft: #f87171;
+  --color-zima-error-ink: #991b1b;
+  --color-zima-error-copy: #7f1d1d;
 
   --spacing-section: 5rem;
+}
+
+/*
+ * ZIMA reservations — Figma frame 18:1356.
+ *
+ * Desktop section heights preserve the source frame's exact 1440 × 4631
+ * geometry, including the shared header and footer.
+ */
+@layer components {
+  .zima-reserve-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-reserve-page main > section {
+    width: 100%;
+  }
+
+  .zima-reserve-page .zima-header.is-solid {
+    background: var(--color-zima-charcoal);
+  }
+
+  .zima-reserve-page .zima-logo-mark {
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-charcoal);
+  }
+
+  .zima-reserve-hero {
+    display: flex;
+    height: 446px;
+    padding: 100px 130px 80px;
+    flex-direction: column;
+    gap: 32px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-reserve-hero-copy {
+    display: flex;
+    width: 800px;
+    height: 182px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .zima-reserve-hero h1 {
+    width: 700px;
+    height: 60px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 59.8px;
+  }
+
+  .zima-reserve-hero-copy > p:last-child {
+    width: 800px;
+    height: 58px;
+    color: var(--color-zima-muted);
+    font-size: 18px;
+    line-height: 28.8px;
+  }
+
+  .zima-reserve-primary-button {
+    display: inline-flex;
+    width: 195px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--color-zima-charcoal);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-decoration: none;
+  }
+
+  .zima-reserve-options {
+    height: 1209px;
+    padding: 80px 130px 100px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-reserve-options-heading {
+    display: flex;
+    width: 455px;
+    height: 83px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .zima-reserve-options h2,
+  .zima-reserve-calendar-heading h2,
+  .zima-reserve-visit-heading h2,
+  .zima-reserve-faq h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 54.64px;
+  }
+
+  .zima-reserve-option-grid {
+    display: grid;
+    width: 1180px;
+    height: 898px;
+    margin-top: 48px;
+    grid-template-columns: repeat(2, 578px);
+    grid-template-rows: repeat(2, 437px);
+    gap: 24px;
+  }
+
+  .zima-reserve-option-card {
+    display: flex;
+    width: 578px;
+    height: 437px;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    padding: 24px;
+    background: white;
+  }
+
+  .zima-reserve-option-title {
+    display: flex;
+    width: 530px;
+    height: 48px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .zima-reserve-option-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-reserve-option-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: var(--color-zima-charcoal);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+
+  .zima-reserve-option-title h3 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 30px;
+  }
+
+  .zima-reserve-option-card > img {
+    width: 530px;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .zima-reserve-option-card > p {
+    width: 530px;
+    height: 46px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 22.5px;
+  }
+
+  .zima-reserve-option-card > a {
+    display: inline-flex;
+    width: 530px;
+    height: 43px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--color-zima-charcoal);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-decoration: none;
+  }
+
+  .zima-reserve-calendar-section {
+    height: 1027px;
+    padding: 100px 130px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-reserve-calendar-heading {
+    display: flex;
+    width: 1180px;
+    height: 155px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-reserve-calendar-heading > p:last-child {
+    width: 800px;
+    height: 52px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  .zima-reserve-tabs {
+    display: flex;
+    width: 566px;
+    height: 51px;
+    margin-top: 56px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    padding: 6px;
+    background: rgb(255 255 255 / 25%);
+  }
+
+  .zima-reserve-tabs button {
+    display: inline-flex;
+    height: 39px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 100px;
+    padding-inline: 20px;
+    background: transparent;
+    color: var(--color-zima-ink);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    white-space: nowrap;
+  }
+
+  .zima-reserve-tabs button.is-active {
+    background: white;
+    font-weight: 700;
+  }
+
+  .zima-reserve-calendar-layout {
+    display: grid;
+    width: 1180px;
+    height: 509px;
+    margin-top: 56px;
+    grid-template-columns: 720px 412px;
+    gap: 48px;
+  }
+
+  .zima-reserve-calendar-card {
+    display: flex;
+    width: 720px;
+    height: 447px;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 16px;
+    padding: 32px;
+    background: white;
+  }
+
+  .zima-reserve-calendar-top {
+    display: flex;
+    width: 656px;
+    height: 32px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zima-reserve-calendar-top h3 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 25px;
+  }
+
+  .zima-reserve-calendar-top > div {
+    display: flex;
+    width: 76px;
+    height: 32px;
+    gap: 12px;
+  }
+
+  .zima-reserve-calendar-top button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 0;
+    border-radius: 6px;
+    padding: 0;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+    font-family: inherit;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  .zima-reserve-calendar-grid {
+    display: flex;
+    width: 656px;
+    height: 218px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-reserve-weekdays,
+  .zima-reserve-days {
+    display: grid;
+    width: 656px;
+    grid-template-columns: repeat(7, 40px);
+    justify-content: space-between;
+  }
+
+  .zima-reserve-weekdays {
+    height: 18px;
+  }
+
+  .zima-reserve-weekdays span {
+    width: 40px;
+    color: var(--color-zima-muted);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .zima-reserve-days {
+    height: 184px;
+    grid-template-rows: repeat(4, 40px);
+    row-gap: 8px;
+  }
+
+  .zima-reserve-days button {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    background: transparent;
+    color: var(--color-zima-ink);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+  }
+
+  .zima-reserve-days button.is-muted {
+    color: var(--color-zima-border);
+  }
+
+  .zima-reserve-days button.is-unavailable {
+    background: var(--color-zima-surface);
+    color: var(--color-zima-muted);
+  }
+
+  .zima-reserve-days button.is-selected {
+    background: var(--color-zima-charcoal);
+    color: white;
+    font-weight: 700;
+  }
+
+  .zima-reserve-times {
+    display: flex;
+    width: 656px;
+    height: 85px;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 16px;
+  }
+
+  .zima-reserve-times > p {
+    height: 19px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+  }
+
+  .zima-reserve-times > div {
+    display: flex;
+    height: 38px;
+    gap: 8px;
+  }
+
+  .zima-reserve-times button {
+    height: 38px;
+    border: 0;
+    border-radius: 6px;
+    padding-inline: 16px;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  .zima-reserve-times button.is-selected {
+    background: var(--color-zima-lime);
+  }
+
+  .zima-reserve-agenda {
+    display: flex;
+    width: 412px;
+    height: 509px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .zima-reserve-agenda-card {
+    display: flex;
+    width: 412px;
+    height: 396px;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    padding: 24px;
+    background: white;
+  }
+
+  .zima-reserve-agenda-card > h3 {
+    height: 22px;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 22px;
+  }
+
+  .zima-reserve-agenda-state {
+    display: flex;
+    width: 364px;
+    height: 37px;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .zima-reserve-agenda-state > span {
+    width: 10px;
+    height: 10px;
+    flex: 0 0 10px;
+    border-radius: 50%;
+  }
+
+  .zima-reserve-agenda-state.is-available > span {
+    background: var(--color-zima-success);
+  }
+
+  .zima-reserve-agenda-state.is-limited > span {
+    background: var(--color-zima-warning);
+  }
+
+  .zima-reserve-agenda-state.is-unavailable > span {
+    background: var(--color-zima-muted);
+  }
+
+  .zima-reserve-agenda-state > div {
+    display: flex;
+    height: 37px;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .zima-reserve-agenda-state h4 {
+    height: 19px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+  }
+
+  .zima-reserve-agenda-state p {
+    height: 16px;
+    color: var(--color-zima-muted);
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+
+  .zima-reserve-calendar-error {
+    display: flex;
+    width: 364px;
+    height: 135px;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--color-zima-error-surface);
+  }
+
+  .zima-reserve-calendar-error > div:first-child {
+    display: flex;
+    height: 18px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .zima-reserve-calendar-error > div:first-child > span {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: var(--color-zima-error-soft);
+  }
+
+  .zima-reserve-calendar-error h4 {
+    color: var(--color-zima-error-ink);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  .zima-reserve-calendar-error > p {
+    width: 332px;
+    height: 34px;
+    color: var(--color-zima-error-copy);
+    font-size: 12px;
+    line-height: 16.8px;
+  }
+
+  .zima-reserve-error-actions {
+    display: flex;
+    width: 174px;
+    height: 27px;
+    gap: 12px;
+  }
+
+  .zima-reserve-error-actions button,
+  .zima-reserve-error-actions a {
+    display: inline-flex;
+    height: 27px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 4px;
+    padding-inline: 12px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 15px;
+    text-decoration: none;
+  }
+
+  .zima-reserve-error-actions button {
+    width: 82px;
+    background: var(--color-zima-error-ink);
+    color: white;
+  }
+
+  .zima-reserve-error-actions a {
+    width: 80px;
+    color: var(--color-zima-error-ink);
+  }
+
+  .zima-reserve-agenda-notes {
+    display: flex;
+    width: 412px;
+    height: 89px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-reserve-agenda-notes > a {
+    display: inline-flex;
+    height: 19px;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-zima-ink);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-decoration: none;
+  }
+
+  .zima-reserve-agenda-notes > p {
+    width: 412px;
+    height: 54px;
+    color: var(--color-zima-muted);
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .zima-reserve-visit {
+    height: 799px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-reserve-visit-heading {
+    display: flex;
+    width: 1180px;
+    height: 143px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .zima-reserve-visit-heading > p:last-child {
+    width: 800px;
+    height: 48px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .zima-reserve-visit-layout {
+    display: grid;
+    width: 1180px;
+    height: 400px;
+    margin-top: 56px;
+    grid-template-columns: 580px 552px;
+    gap: 48px;
+  }
+
+  .zima-reserve-map {
+    position: relative;
+    width: 580px;
+    height: 400px;
+    overflow: hidden;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-reserve-map > img {
+    width: 580px;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .zima-reserve-map > div {
+    position: absolute;
+    top: 160px;
+    left: 210px;
+    display: flex;
+    width: 159px;
+    height: 79px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .zima-reserve-map > div > span {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-zima-ink);
+  }
+
+  .zima-reserve-map svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+
+  .zima-reserve-map strong {
+    height: 19px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    white-space: nowrap;
+  }
+
+  .zima-reserve-contact {
+    display: flex;
+    width: 552px;
+    height: 365px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .zima-reserve-contact dl {
+    display: flex;
+    width: 552px;
+    height: 290px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .zima-reserve-contact dl > div {
+    display: flex;
+    width: 552px;
+    height: 42px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .zima-reserve-contact dt {
+    color: var(--color-zima-brown);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
+
+  .zima-reserve-contact dd {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .zima-reserve-contact dl > div:first-child dd {
+    font-weight: 700;
+  }
+
+  .zima-reserve-contact > a {
+    display: inline-flex;
+    width: 192px;
+    height: 43px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background: var(--color-zima-charcoal);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-decoration: none;
+  }
+
+  .zima-reserve-faq {
+    height: 570px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-reserve-faq h2 {
+    width: 838px;
+    height: 55px;
+  }
+
+  .zima-reserve-faq-list {
+    display: flex;
+    width: 1180px;
+    height: 259px;
+    margin-top: 56px;
+    flex-direction: column;
+  }
+
+  .zima-reserve-faq-list details {
+    height: 65px;
+    border-bottom: 1px solid var(--color-zima-sand);
+    padding-block: 20px;
+  }
+
+  .zima-reserve-faq-list details[open] {
+    height: 129px;
+  }
+
+  .zima-reserve-faq-list summary {
+    display: flex;
+    height: 25px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .zima-reserve-faq-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .zima-reserve-faq-list summary::after {
+    width: 20px;
+    height: 20px;
+    content: "+";
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .zima-reserve-faq-list details[open] summary::after {
+    content: "−";
+  }
+
+  .zima-reserve-faq-list h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .zima-reserve-faq-list details > p {
+    width: 1180px;
+    height: 48px;
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .zima-reserve-hero,
+    .zima-reserve-options,
+    .zima-reserve-calendar-section,
+    .zima-reserve-visit,
+    .zima-reserve-faq {
+      height: auto;
+      padding: 56px 20px;
+    }
+
+    .zima-reserve-hero-copy,
+    .zima-reserve-hero h1,
+    .zima-reserve-hero-copy > p:last-child,
+    .zima-reserve-options-heading,
+    .zima-reserve-option-grid,
+    .zima-reserve-option-card,
+    .zima-reserve-option-title,
+    .zima-reserve-option-card > img,
+    .zima-reserve-option-card > p,
+    .zima-reserve-option-card > a,
+    .zima-reserve-calendar-heading,
+    .zima-reserve-calendar-heading > p:last-child,
+    .zima-reserve-calendar-layout,
+    .zima-reserve-calendar-card,
+    .zima-reserve-calendar-top,
+    .zima-reserve-calendar-grid,
+    .zima-reserve-weekdays,
+    .zima-reserve-days,
+    .zima-reserve-times,
+    .zima-reserve-agenda,
+    .zima-reserve-agenda-card,
+    .zima-reserve-agenda-state,
+    .zima-reserve-calendar-error,
+    .zima-reserve-calendar-error > p,
+    .zima-reserve-agenda-notes,
+    .zima-reserve-agenda-notes > p,
+    .zima-reserve-visit-heading,
+    .zima-reserve-visit-heading > p:last-child,
+    .zima-reserve-visit-layout,
+    .zima-reserve-map,
+    .zima-reserve-map > img,
+    .zima-reserve-contact,
+    .zima-reserve-contact dl,
+    .zima-reserve-contact dl > div,
+    .zima-reserve-faq h2,
+    .zima-reserve-faq-list,
+    .zima-reserve-faq-list details > p {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-reserve-hero h1,
+    .zima-reserve-options h2,
+    .zima-reserve-calendar-heading h2,
+    .zima-reserve-visit-heading h2,
+    .zima-reserve-faq h2 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .zima-reserve-option-grid,
+    .zima-reserve-calendar-layout,
+    .zima-reserve-visit-layout {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .zima-reserve-option-card {
+      min-height: 437px;
+    }
+
+    .zima-reserve-option-card > img {
+      min-height: 180px;
+    }
+
+    .zima-reserve-tabs {
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+      border-radius: 12px;
+    }
+
+    .zima-reserve-calendar-card {
+      overflow-x: auto;
+    }
+
+    .zima-reserve-calendar-top,
+    .zima-reserve-calendar-grid,
+    .zima-reserve-times {
+      min-width: 656px;
+    }
+
+    .zima-reserve-agenda-card {
+      min-height: 396px;
+    }
+
+    .zima-reserve-calendar-error {
+      min-height: 135px;
+    }
+
+    .zima-reserve-visit-layout {
+      gap: 36px;
+    }
+
+    .zima-reserve-map {
+      aspect-ratio: 29 / 20;
+    }
+
+    .zima-reserve-map > div {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .zima-reserve-faq-list details,
+    .zima-reserve-faq-list details[open] {
+      height: auto;
+      min-height: 65px;
+    }
+  }
 }
 
 @custom-variant enter (&:hover, &:focus-visible);
@@ -143,6 +1694,11 @@
     color: white;
   }
 
+  .zima-header.is-solid {
+    position: relative;
+    background: var(--color-zima-ink);
+  }
+
   .zima-header-inner {
     display: flex;
     width: 1180px;
@@ -193,7 +1749,7 @@
     text-decoration: none;
   }
 
-  .zima-nav a:first-child {
+  .zima-nav a.is-active {
     color: var(--color-zima-lime);
     font-weight: 700;
   }
@@ -210,6 +1766,7 @@
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   .zima-hero {
@@ -217,7 +1774,11 @@
     padding: 140px 130px 80px;
     background:
       linear-gradient(var(--zima-overlay), var(--zima-overlay)),
-      url("/images/zima/hero-home.jpg") center center / cover no-repeat;
+      image-set(
+          url("/images/zima/hero-home-zima-real.avif") type("image/avif"),
+          url("/images/zima/hero-home-zima-real.jpg") type("image/jpeg")
+        )
+        center center / cover no-repeat;
     color: white;
   }
 
@@ -325,6 +1886,7 @@
     font-weight: 700;
     line-height: 19px;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .zima-button-lg {
@@ -678,9 +2240,10 @@
   .zima-community {
     height: 700px;
     padding: 100px 90px;
-    background: url("/images/zima/community-bg.jpg") center 47% / cover
-      no-repeat;
-    color: var(--color-zima-ink);
+    background:
+      linear-gradient(rgb(23 23 21 / 62%), rgb(23 23 21 / 62%)),
+      url("/images/zima/community-bg.jpg") center 47% / cover no-repeat;
+    color: var(--color-zima-canvas);
   }
 
   .zima-community-grid {
@@ -691,7 +2254,7 @@
   }
 
   .zima-community .zima-eyebrow {
-    color: var(--color-zima-brown);
+    color: var(--color-zima-lime);
   }
 
   .zima-community .zima-heading {
@@ -701,14 +2264,14 @@
 
   .zima-community-copy {
     margin-top: 32px;
-    color: var(--color-zima-ink);
+    color: var(--color-zima-canvas);
     font-size: 16px;
     line-height: 25.6px;
   }
 
   .zima-community-copy + .zima-community-copy {
     margin-top: 16px;
-    color: var(--color-zima-muted);
+    color: rgb(250 247 241 / 80%);
     font-size: 15px;
     line-height: 24px;
   }
@@ -717,7 +2280,8 @@
     margin-top: 32px;
   }
 
-  .zima-community-image {
+  .zima-community-video {
+    display: block;
     width: 678px;
     height: 500px;
     border-radius: 12px;
@@ -1085,6 +2649,838 @@
     line-height: 19px;
   }
 
+  /*
+   * ZIMA spaces — Figma frame 18:417.
+   * Header + six sections + footer total exactly 1440 × 4856 on desktop.
+   */
+  .zima-spaces-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-spaces-page .zima-button {
+    height: 43px;
+  }
+
+  .zima-spaces-hero {
+    height: 995px;
+    padding: 100px 130px 108px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-spaces-hero-row {
+    display: grid;
+    height: 171px;
+    grid-template-columns: 680px 440px;
+    gap: 60px;
+  }
+
+  .zima-spaces-hero-title {
+    height: 160px;
+  }
+
+  .zima-spaces-hero-title h1 {
+    width: 680px;
+    margin-top: 24px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 60px;
+  }
+
+  .zima-spaces-hero-copy {
+    height: 171px;
+  }
+
+  .zima-spaces-hero-copy > p {
+    height: 104px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .zima-spaces-actions {
+    display: flex;
+    margin-top: 24px;
+    gap: 16px;
+  }
+
+  .zima-spaces-actions .zima-button:first-child {
+    width: 185px;
+  }
+
+  .zima-spaces-actions .zima-button:last-child {
+    width: 156px;
+  }
+
+  .zima-spaces-hero-image {
+    display: block;
+    width: 1180px;
+    height: 560px;
+    margin-top: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .zima-spaces-feature {
+    display: flex;
+    align-items: center;
+    padding-inline: 130px;
+  }
+
+  .zima-spaces-cowork {
+    height: 808px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-spaces-meeting {
+    height: 792px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-spaces-cafe {
+    height: 720px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-spaces-feature-grid {
+    display: grid;
+    width: 1180px;
+    margin-inline: auto;
+    grid-template-columns: 520px 580px;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .zima-spaces-feature-grid.is-reversed {
+    grid-template-columns: 580px 520px;
+  }
+
+  .zima-spaces-feature-content h2 {
+    margin-top: 16px;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 48px;
+  }
+
+  .zima-spaces-body {
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .zima-spaces-feature-image {
+    display: block;
+    width: 580px;
+    height: 520px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .zima-spaces-benefits {
+    display: flex;
+    height: 202px;
+    margin-top: 32px;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .zima-spaces-benefits li {
+    display: grid;
+    min-height: 23px;
+    grid-template-columns: 20px 1fr;
+    gap: 12px;
+    align-items: start;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .zima-spaces-benefits li > span {
+    color: var(--color-zima-brown);
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .zima-spaces-feature-content > .zima-text-link {
+    margin-top: 32px;
+  }
+
+  .zima-spaces-price-row {
+    display: grid;
+    height: 64px;
+    margin-top: 32px;
+    grid-template-columns: 209px 1fr;
+  }
+
+  .zima-spaces-price-row > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .zima-spaces-price-row span {
+    color: var(--color-zima-brown);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+  }
+
+  .zima-spaces-price-row strong {
+    margin-top: 4px;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 44px;
+  }
+
+  .zima-spaces-price-row small {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .zima-spaces-price-row .is-additional {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .zima-spaces-benefits.is-compact {
+    height: 93px;
+    margin-top: 32px;
+    gap: 12px;
+  }
+
+  .zima-spaces-meeting .zima-button {
+    margin-top: 32px;
+  }
+
+  .zima-spaces-podcast {
+    display: flex;
+    height: 391px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-zima-charcoal);
+    color: white;
+    text-align: center;
+  }
+
+  .zima-spaces-podcast-copy {
+    width: 800px;
+    height: 164px;
+  }
+
+  .zima-spaces-podcast h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 48px;
+  }
+
+  .zima-spaces-podcast p {
+    margin-top: 16px;
+    color: var(--color-zima-canvas);
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .zima-spaces-podcast .zima-button {
+    width: 227px;
+    margin-top: 32px;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .zima-spaces-faq {
+    height: 570px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-spaces-faq h2 {
+    height: 55px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 55px;
+  }
+
+  .zima-spaces-faq-list {
+    height: 259px;
+    margin-top: 56px;
+    border-bottom: 1px solid var(--color-zima-sand);
+  }
+
+  .zima-spaces-faq details {
+    border-top: 1px solid var(--color-zima-sand);
+    padding: 20px 0;
+  }
+
+  .zima-spaces-faq summary {
+    display: flex;
+    height: 25px;
+    cursor: pointer;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .zima-spaces-faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .zima-spaces-faq summary::after {
+    content: "+";
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .zima-spaces-faq details[open] summary::after {
+    content: "−";
+  }
+
+  .zima-spaces-faq details p {
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  /*
+   * ZIMA podcast studio — Figma frame 18:592.
+   * Header + eight sections + footer total exactly 1440 × 5928 on desktop.
+   */
+  .zima-studio-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-studio-hero {
+    height: 740px;
+    padding: 160px 130px 100px;
+    background:
+      linear-gradient(rgb(0 0 0 / 45%), rgb(0 0 0 / 45%)),
+      url("/images/zima/podcast-hero.png") center center / cover no-repeat;
+    color: white;
+  }
+
+  .zima-studio-hero-content {
+    display: flex;
+    width: 760px;
+    height: 476px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .zima-studio-hero .zima-eyebrow {
+    color: var(--color-zima-lime);
+  }
+
+  .zima-studio-hero h1 {
+    width: 760px;
+    height: 180px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 59.8px;
+  }
+
+  .zima-studio-hero-lead {
+    width: 760px;
+    height: 78px;
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  .zima-studio-hero-actions {
+    display: flex;
+    width: 346px;
+    height: 56px;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .zima-studio-hero-actions .zima-button {
+    width: 188px;
+    flex: 0 0 188px;
+  }
+
+  .zima-studio-light-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .zima-studio-light-link span {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .zima-studio-availability {
+    height: 18px;
+    color: var(--color-zima-canvas);
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .zima-studio-problem {
+    display: flex;
+    height: 441px;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-zima-canvas);
+    text-align: center;
+  }
+
+  .zima-studio-problem-copy {
+    display: flex;
+    width: 800px;
+    height: 241px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .zima-studio-problem h2,
+  .zima-studio-section-heading h2,
+  .zima-studio-pricing h2,
+  .zima-studio-faq h2,
+  .zima-studio-cta h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 55px;
+  }
+
+  .zima-studio-problem-lead {
+    height: 90px;
+    color: var(--color-zima-brown);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+
+  .zima-studio-problem-copy > p:last-child {
+    height: 48px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .zima-studio-equipment {
+    height: 783px;
+    padding: 100px 130px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-studio-section-heading {
+    display: flex;
+    width: 1180px;
+    height: 87px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-studio-equipment-grid {
+    display: grid;
+    width: 1180px;
+    height: 440px;
+    margin-top: 56px;
+    grid-template-columns: 580px 536px;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .zima-studio-equipment-grid > img {
+    display: block;
+    width: 580px;
+    height: 440px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .zima-studio-equipment-copy {
+    display: flex;
+    width: 536px;
+    height: 326px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .zima-studio-equipment-copy ul {
+    display: flex;
+    height: 202px;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+  }
+
+  .zima-studio-equipment-copy li {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .zima-studio-equipment-copy li > span {
+    color: var(--color-zima-brown);
+    font-size: 18px;
+    line-height: 23px;
+  }
+
+  .zima-studio-note {
+    width: 536px;
+    height: 92px;
+    border: 1px solid var(--color-zima-divider);
+    border-radius: 8px;
+    padding: 16px;
+    background: white;
+    color: var(--color-zima-muted);
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .zima-studio-note strong {
+    color: var(--color-zima-brown);
+  }
+
+  .zima-studio-pricing {
+    display: flex;
+    height: 800px;
+    padding: 100px 130px;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-studio-pricing-heading {
+    display: flex;
+    width: 800px;
+    height: 119px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .zima-studio-pricing-heading > p {
+    width: 800px;
+    height: 48px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .zima-studio-price-card {
+    display: grid;
+    width: 640px;
+    height: 433px;
+    margin-top: 48px;
+    grid-template-rows: 113px 1px 72px 56px;
+    row-gap: 32px;
+    border: 2px solid var(--color-zima-charcoal);
+    border-radius: 12px;
+    padding: 48px;
+    background: white;
+  }
+
+  .zima-studio-price-top {
+    display: flex;
+    height: 113px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .zima-studio-price-top > p {
+    color: var(--color-zima-brown);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 25px;
+    text-transform: uppercase;
+  }
+
+  .zima-studio-price-top > div {
+    display: flex;
+    height: 76px;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .zima-studio-price-top strong {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 76px;
+  }
+
+  .zima-studio-price-top span {
+    color: var(--color-zima-muted);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  .zima-studio-price-divider {
+    height: 1px;
+    background: var(--color-zima-divider);
+  }
+
+  .zima-studio-price-card ul {
+    display: flex;
+    height: 72px;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+  }
+
+  .zima-studio-price-card li {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 8px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .zima-studio-price-card li > span:first-child {
+    color: var(--color-zima-brown);
+    font-size: 20px;
+  }
+
+  .zima-studio-price-card .zima-button {
+    width: 544px;
+  }
+
+  .zima-studio-use-cases {
+    height: 785px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-studio-use-grid {
+    display: grid;
+    width: 1180px;
+    height: 442px;
+    margin-top: 56px;
+    grid-template-columns: repeat(2, 578px);
+    grid-template-rows: repeat(2, 209px);
+    gap: 24px;
+  }
+
+  .zima-studio-use-grid article {
+    display: flex;
+    width: 578px;
+    height: 209px;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--color-zima-divider);
+    border-radius: 12px;
+    padding: 32px;
+    background: white;
+  }
+
+  .zima-studio-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--color-zima-surface);
+    color: var(--color-zima-cocoa);
+  }
+
+  .zima-studio-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+  }
+
+  .zima-studio-use-grid article > div {
+    display: flex;
+    height: 77px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zima-studio-use-grid h3 {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 27px;
+  }
+
+  .zima-studio-use-grid p {
+    color: var(--color-zima-muted);
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .zima-studio-process {
+    height: 558px;
+    padding: 100px 130px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-studio-steps {
+    display: grid;
+    width: 1180px;
+    height: 111px;
+    margin-top: 56px;
+    grid-template-columns: repeat(4, 271px);
+    gap: 32px;
+  }
+
+  .zima-studio-steps article {
+    display: flex;
+    height: 111px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-studio-steps strong {
+    color: var(--color-zima-brown);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 49px;
+  }
+
+  .zima-studio-steps p {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .zima-studio-process-actions {
+    display: flex;
+    width: 412px;
+    height: 48px;
+    margin-top: 56px;
+    gap: 16px;
+  }
+
+  .zima-studio-process-actions .zima-button:first-child {
+    width: 180px;
+  }
+
+  .zima-studio-process-actions .zima-button:last-child {
+    width: 216px;
+  }
+
+  .zima-studio-faq {
+    height: 803px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-studio-faq h2 {
+    height: 55px;
+  }
+
+  .zima-studio-faq-list {
+    width: 1180px;
+    height: 492px;
+    margin-top: 56px;
+    border-bottom: 1px solid var(--color-zima-sand);
+  }
+
+  .zima-studio-faq-list article {
+    height: 129px;
+    border-top: 1px solid var(--color-zima-sand);
+    padding: 20px 0;
+  }
+
+  .zima-studio-faq-list article:first-child {
+    height: 105px;
+  }
+
+  .zima-studio-faq-list article > div {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zima-studio-faq-list h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .zima-studio-faq-list article > div > span {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 25px;
+  }
+
+  .zima-studio-faq-list article > p {
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .zima-studio-cta {
+    display: flex;
+    height: 438px;
+    padding: 100px 130px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-zima-cocoa);
+    color: white;
+    text-align: center;
+  }
+
+  .zima-studio-cta-copy {
+    display: flex;
+    width: 800px;
+    height: 150px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .zima-studio-cta h2 {
+    width: 800px;
+    height: 110px;
+  }
+
+  .zima-studio-cta-copy p {
+    height: 24px;
+    color: var(--color-zima-canvas);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .zima-studio-cta-actions {
+    display: flex;
+    width: 566px;
+    height: 56px;
+    gap: 16px;
+  }
+
+  .zima-studio-cta-actions .zima-button:first-child {
+    width: 188px;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-studio-cta-actions .zima-button:last-child {
+    width: 362px;
+    border-color: var(--color-zima-canvas);
+    color: var(--color-zima-canvas);
+  }
+
   @media (max-width: 900px) {
     .zima-shell,
     .zima-header-inner {
@@ -1117,6 +3513,181 @@
       padding: 56px 20px;
     }
 
+    .zima-spaces-hero,
+    .zima-spaces-feature,
+    .zima-spaces-podcast,
+    .zima-spaces-faq,
+    .zima-studio-hero,
+    .zima-studio-problem,
+    .zima-studio-equipment,
+    .zima-studio-pricing,
+    .zima-studio-use-cases,
+    .zima-studio-process,
+    .zima-studio-faq,
+    .zima-studio-cta {
+      height: auto;
+      padding: 56px 20px;
+    }
+
+    .zima-spaces-hero-row,
+    .zima-spaces-feature-grid,
+    .zima-spaces-feature-grid.is-reversed {
+      display: grid;
+      width: 100%;
+      height: auto;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .zima-spaces-hero-title,
+    .zima-spaces-hero-copy,
+    .zima-spaces-hero-copy > p,
+    .zima-spaces-podcast-copy,
+    .zima-spaces-faq h2,
+    .zima-spaces-faq-list {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-spaces-hero-title h1,
+    .zima-spaces-feature-content h2,
+    .zima-spaces-podcast h2,
+    .zima-spaces-faq h2 {
+      width: 100%;
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .zima-spaces-hero-image,
+    .zima-spaces-feature-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+    }
+
+    .zima-spaces-actions,
+    .zima-spaces-price-row {
+      height: auto;
+      grid-template-columns: 1fr;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .zima-spaces-benefits,
+    .zima-spaces-benefits.is-compact {
+      height: auto;
+    }
+
+    .zima-spaces-podcast-copy {
+      min-height: 164px;
+    }
+
+    .zima-studio-hero {
+      min-height: 720px;
+      padding-top: 112px;
+    }
+
+    .zima-studio-hero-content,
+    .zima-studio-hero h1,
+    .zima-studio-hero-lead,
+    .zima-studio-problem-copy,
+    .zima-studio-section-heading,
+    .zima-studio-pricing-heading,
+    .zima-studio-pricing-heading > p,
+    .zima-studio-equipment-grid,
+    .zima-studio-equipment-copy,
+    .zima-studio-note,
+    .zima-studio-use-grid,
+    .zima-studio-steps,
+    .zima-studio-process-actions,
+    .zima-studio-faq h2,
+    .zima-studio-faq-list,
+    .zima-studio-cta-copy,
+    .zima-studio-cta h2,
+    .zima-studio-cta-actions {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-studio-hero-content {
+      gap: 24px;
+    }
+
+    .zima-studio-hero h1,
+    .zima-studio-problem h2,
+    .zima-studio-section-heading h2,
+    .zima-studio-pricing h2,
+    .zima-studio-faq h2,
+    .zima-studio-cta h2 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .zima-studio-hero-actions,
+    .zima-studio-cta-actions,
+    .zima-studio-process-actions {
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+    }
+
+    .zima-studio-equipment-grid,
+    .zima-studio-use-grid,
+    .zima-studio-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 24px;
+    }
+
+    .zima-studio-equipment-grid > img,
+    .zima-studio-use-grid article,
+    .zima-studio-steps article,
+    .zima-studio-price-card {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-studio-equipment-grid > img {
+      aspect-ratio: 29 / 22;
+    }
+
+    .zima-studio-equipment-copy ul,
+    .zima-studio-price-card ul {
+      height: auto;
+    }
+
+    .zima-studio-price-card {
+      display: flex;
+      padding: 32px 24px;
+      flex-direction: column;
+    }
+
+    .zima-studio-price-top strong {
+      font-size: 40px;
+      line-height: 55px;
+    }
+
+    .zima-studio-price-card .zima-button,
+    .zima-studio-cta-actions .zima-button:first-child,
+    .zima-studio-cta-actions .zima-button:last-child {
+      width: 100%;
+    }
+
+    .zima-studio-use-grid article {
+      min-height: 209px;
+    }
+
+    .zima-studio-faq-list article,
+    .zima-studio-faq-list article:first-child {
+      height: auto;
+      min-height: 105px;
+    }
+
+    .zima-spaces-faq-list {
+      margin-top: 36px;
+    }
+
     .zima-hero {
       min-height: 680px;
       padding-top: 112px;
@@ -1144,7 +3715,22 @@
 
     .zima-intentions {
       width: 100%;
-      overflow: hidden;
+      height: auto;
+      overflow: visible;
+      border-radius: 18px;
+    }
+
+    .zima-intention,
+    .zima-intention:nth-child(1),
+    .zima-intention:nth-child(2),
+    .zima-intention:nth-child(3) {
+      width: auto;
+      height: auto;
+      min-height: 38px;
+      flex: 1 1 104px;
+      padding: 8px 10px;
+      text-align: center;
+      line-height: 16px;
     }
 
     .zima-hero-address {
@@ -1174,7 +3760,7 @@
 
     .zima-spaces .zima-section-lead,
     .zima-feature-image,
-    .zima-community-image,
+    .zima-community-video,
     .zima-form-photo,
     .zima-map {
       width: 100%;
@@ -1208,6 +3794,514 @@
     .zima-footer-bottom {
       flex-direction: column;
       gap: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .zima-community-video {
+      display: none;
+    }
+  }
+}
+
+/*
+ * ZIMA community — Figma frame 18:1178.
+ *
+ * Desktop section heights preserve the source frame's exact 1440 × 4943
+ * geometry, including the shared header and footer.
+ */
+@layer components {
+  .zima-community-page {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-zima-canvas);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-community-page main > section {
+    width: 100%;
+  }
+
+  .zima-community-page .zima-nav-cta {
+    width: 119px;
+    height: 43px;
+    font-size: 14px;
+  }
+
+  .zima-community-hero {
+    height: 780px;
+    padding: 140px 130px 80px;
+    background: url("/images/zima/community-hero.jpg") center center / cover
+      no-repeat;
+    color: white;
+  }
+
+  .zima-community-hero-content {
+    display: flex;
+    width: 760px;
+    height: 362px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .zima-community-hero .zima-eyebrow {
+    color: var(--color-zima-lime);
+  }
+
+  .zima-community-hero h1 {
+    width: 760px;
+    height: 120px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 59.8px;
+  }
+
+  .zima-community-hero-lead {
+    width: 760px;
+    height: 87px;
+    color: var(--color-zima-canvas);
+    font-size: 18px;
+    line-height: 28.8px;
+  }
+
+  .zima-community-hero-actions {
+    display: flex;
+    width: 364px;
+    height: 43px;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .zima-community-button {
+    display: inline-flex;
+    height: 43px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding-inline: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .zima-community-button.is-lime {
+    background: var(--color-zima-lime);
+    color: var(--color-zima-ink);
+  }
+
+  .zima-community-button.is-outline {
+    border-color: white;
+    color: white;
+  }
+
+  .zima-community-light-link,
+  .zima-community-text-link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .zima-community-light-link {
+    gap: 8px;
+    color: white;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .zima-community-text-link {
+    gap: 6px;
+    color: var(--color-zima-brown);
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .zima-community-vibe {
+    height: 783px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-community-vibe-heading {
+    display: flex;
+    width: 1180px;
+    height: 207px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .zima-community-vibe-heading h2,
+  .zima-community-editorial h2,
+  .zima-community-resources h2,
+  .zima-community-faq h2,
+  .zima-community-cta h2 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 54.64px;
+  }
+
+  .zima-community-vibe-heading > p:last-child {
+    width: 760px;
+    height: 96px;
+    color: var(--color-zima-muted);
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  .zima-community-vibe-grid {
+    display: grid;
+    width: 1180px;
+    height: 320px;
+    margin-top: 56px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .zima-community-vibe-grid img {
+    width: 100%;
+    height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .zima-community-editorial {
+    display: grid;
+    height: 600px;
+    padding: 100px 130px;
+    grid-template-columns: 520px 580px;
+    align-items: center;
+    gap: 80px;
+    background: var(--color-zima-surface);
+  }
+
+  .zima-community-editorial-copy {
+    display: flex;
+    width: 520px;
+    height: 258px;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .zima-community-editorial-copy > div {
+    display: flex;
+    width: 520px;
+    height: 207px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-community-editorial-copy > div > p:last-child {
+    width: 520px;
+    height: 104px;
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  .zima-community-editorial > img {
+    width: 580px;
+    height: 400px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .zima-community-resources {
+    height: 1238px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-community-resources-heading {
+    display: flex;
+    width: 1180px;
+    height: 155px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-community-resources-heading > p:last-child {
+    width: 800px;
+    height: 52px;
+    color: var(--color-zima-muted);
+    font-size: 16px;
+    line-height: 25.6px;
+  }
+
+  .zima-community-resources-grid {
+    display: grid;
+    width: 1180px;
+    height: 827px;
+    margin-top: 56px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 384px 411px;
+    align-items: start;
+    gap: 32px 24px;
+  }
+
+  .zima-community-resources-grid article {
+    height: 384px;
+    overflow: hidden;
+    border: 1px solid var(--color-zima-border);
+    border-radius: 12px;
+    background: white;
+  }
+
+  .zima-community-resources-grid article:nth-child(5) {
+    height: 411px;
+  }
+
+  .zima-community-resources-grid article > img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .zima-community-resource-content {
+    display: flex;
+    height: 184px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .zima-community-resources-grid
+    article:nth-child(5)
+    .zima-community-resource-content {
+    height: 211px;
+  }
+
+  .zima-community-resource-content > span {
+    width: fit-content;
+    height: 22px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    background: var(--color-zima-chip);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+
+  .zima-community-resource-content > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zima-community-resource-content h3 {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 27.32px;
+  }
+
+  .zima-community-resource-content p {
+    color: var(--color-zima-muted);
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .zima-community-faq {
+    height: 537px;
+    padding: 100px 130px;
+    background: var(--color-zima-canvas);
+  }
+
+  .zima-community-faq h2 {
+    width: 1180px;
+    height: 55px;
+  }
+
+  .zima-community-faq-list {
+    display: flex;
+    width: 1180px;
+    height: 226px;
+    margin-top: 56px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .zima-community-faq-list article {
+    height: 105px;
+    border-bottom: 1px solid var(--color-zima-sand);
+    padding: 20px 0;
+  }
+
+  .zima-community-faq-list article > div {
+    display: flex;
+    height: 25px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .zima-community-faq-list h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .zima-community-faq-list article > div > span {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 25px;
+  }
+
+  .zima-community-faq-list article > p {
+    margin-top: 16px;
+    color: var(--color-zima-muted);
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .zima-community-cta {
+    display: flex;
+    height: 425px;
+    padding: 100px 130px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-zima-cocoa);
+    color: white;
+    text-align: center;
+  }
+
+  .zima-community-cta-copy {
+    display: flex;
+    width: 800px;
+    height: 150px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .zima-community-cta h2 {
+    width: 800px;
+    height: 110px;
+  }
+
+  .zima-community-cta-copy p {
+    width: 800px;
+    height: 24px;
+    color: var(--color-zima-canvas);
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .zima-community-cta-actions {
+    display: flex;
+    width: 322px;
+    height: 43px;
+    gap: 16px;
+  }
+
+  .zima-community-cta-actions .zima-community-button:first-child {
+    width: 167px;
+  }
+
+  .zima-community-cta-actions .zima-community-button:last-child {
+    width: 139px;
+  }
+
+  @media (max-width: 900px) {
+    .zima-community-hero,
+    .zima-community-vibe,
+    .zima-community-editorial,
+    .zima-community-resources,
+    .zima-community-faq,
+    .zima-community-cta {
+      height: auto;
+      padding: 56px 20px;
+    }
+
+    .zima-community-hero {
+      min-height: 700px;
+      padding-top: 112px;
+    }
+
+    .zima-community-hero-content,
+    .zima-community-hero h1,
+    .zima-community-hero-lead,
+    .zima-community-vibe-heading,
+    .zima-community-vibe-heading > p:last-child,
+    .zima-community-vibe-grid,
+    .zima-community-editorial-copy,
+    .zima-community-editorial-copy > div,
+    .zima-community-editorial-copy > div > p:last-child,
+    .zima-community-editorial > img,
+    .zima-community-resources-heading,
+    .zima-community-resources-heading > p:last-child,
+    .zima-community-resources-grid,
+    .zima-community-faq h2,
+    .zima-community-faq-list,
+    .zima-community-cta-copy,
+    .zima-community-cta h2,
+    .zima-community-cta-copy p,
+    .zima-community-cta-actions {
+      width: 100%;
+      height: auto;
+    }
+
+    .zima-community-hero h1,
+    .zima-community-vibe-heading h2,
+    .zima-community-editorial h2,
+    .zima-community-resources h2,
+    .zima-community-faq h2,
+    .zima-community-cta h2 {
+      font-size: 32px;
+      line-height: 39px;
+    }
+
+    .zima-community-hero-actions,
+    .zima-community-cta-actions {
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+    }
+
+    .zima-community-vibe-grid,
+    .zima-community-resources-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      height: auto;
+    }
+
+    .zima-community-vibe-grid img,
+    .zima-community-resources-grid article,
+    .zima-community-resources-grid article:nth-child(5) {
+      width: 100%;
+      height: auto;
+      min-height: 320px;
+    }
+
+    .zima-community-editorial {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .zima-community-editorial > img {
+      aspect-ratio: 29 / 20;
+    }
+
+    .zima-community-resource-content,
+    .zima-community-resources-grid
+      article:nth-child(5)
+      .zima-community-resource-content {
+      height: auto;
+      min-height: 184px;
+    }
+
+    .zima-community-faq-list article {
+      height: auto;
+      min-height: 105px;
+    }
+
+    .zima-community-cta-actions .zima-community-button {
+      width: 100%;
     }
   }
 }

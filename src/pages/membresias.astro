@@ -1,0 +1,51 @@
+---
+import Base from "~/layouts/Base.astro"
+import Seo from "~/components/seo/Seo.astro"
+import SectionZimaMemberships from "~/components/sections/SectionZimaMemberships.astro"
+import type { SeoData } from "~/lib/seo"
+
+const locale = "en" as const
+const title = "Membresías y Day Pass | ZIMA Coffee + Cowork"
+const description =
+  "Conoce los Day Pass, membresías individuales y planes para equipos de ZIMA Cowork en San Luis Potosí."
+const canonical = Astro.url.href
+const ogImage = new URL(
+  `/api/og/page?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`,
+  Astro.url.origin,
+).href
+const seo: SeoData = {
+  title,
+  description,
+  keywords: [
+    "membresías cowork San Luis Potosí",
+    "Day Pass cowork",
+    "planes cowork",
+    "cowork para equipos",
+  ],
+  canonical,
+  alternates: [
+    { hreflang: "es", href: canonical },
+    { hreflang: "x-default", href: canonical },
+  ],
+  ogTitle: title,
+  ogDescription: description,
+  ogImage,
+  ogType: "website",
+  twitterCard: "summary",
+  twitterSite: "",
+  twitterCreator: "",
+  jsonLd: {},
+}
+---
+
+<Base
+  locale={locale}
+  htmlLang="es"
+  chrome={false}
+  bodyClass="bg-zima-canvas text-zima-ink"
+>
+  <Fragment slot="head">
+    <Seo {...seo} />
+  </Fragment>
+  <SectionZimaMemberships locale={locale} />
+</Base>

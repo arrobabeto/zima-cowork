@@ -1,0 +1,49 @@
+---
+import Base from "~/layouts/Base.astro"
+import Seo from "~/components/seo/Seo.astro"
+import SectionZimaCommunity from "~/components/sections/SectionZimaCommunity.astro"
+import type { SeoData } from "~/lib/seo"
+
+const locale = "en" as const
+const title = "Comunidad ZIMA | Coffee + Cowork"
+const description =
+  "Conoce la comunidad de freelancers, emprendedores, equipos, marcas y creadores que trabajan y conectan en ZIMA San Luis Potosí."
+const canonical = Astro.url.href
+const ogImage = new URL("/images/zima/community-hero.jpg", Astro.url.origin)
+  .href
+const seo: SeoData = {
+  title,
+  description,
+  keywords: [
+    "comunidad emprendedora San Luis Potosí",
+    "networking San Luis Potosí",
+    "eventos para freelancers",
+    "comunidad cowork",
+  ],
+  canonical,
+  alternates: [
+    { hreflang: "es", href: canonical },
+    { hreflang: "x-default", href: canonical },
+  ],
+  ogTitle: title,
+  ogDescription: description,
+  ogImage,
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterSite: "",
+  twitterCreator: "",
+  jsonLd: {},
+}
+---
+
+<Base
+  locale={locale}
+  htmlLang="es"
+  chrome={false}
+  bodyClass="bg-zima-canvas text-zima-ink"
+>
+  <Fragment slot="head">
+    <Seo {...seo} />
+  </Fragment>
+  <SectionZimaCommunity locale={locale} />
+</Base>
