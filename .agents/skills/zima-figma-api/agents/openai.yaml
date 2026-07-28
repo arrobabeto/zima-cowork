@@ -1,0 +1,8 @@
+interface:
+  display_name: "Zima Figma API"
+  short_description: "Read Zima designs via Figma REST keys"
+  brand_color: "#1E1E1E"
+  default_prompt: "Use $zima-figma-api to confirm the Zima Figma file and list desktop page frames."
+
+policy:
+  allow_implicit_invocation: true

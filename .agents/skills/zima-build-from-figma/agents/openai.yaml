@@ -1,0 +1,8 @@
+interface:
+  display_name: "Zima Build from Figma"
+  short_description: "Figma → Astro section → Orbitype CMS"
+  brand_color: "#B45309"
+  default_prompt: "Use $zima-build-from-figma to implement the next desktop section from the Zima Figma file and prepare CMS JSON."
+
+policy:
+  allow_implicit_invocation: true
