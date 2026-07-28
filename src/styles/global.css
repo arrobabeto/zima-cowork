@@ -728,15 +728,6 @@
     width: 100%;
   }
 
-  .zima-reserve-page .zima-header.is-solid {
-    background: var(--color-zima-charcoal);
-  }
-
-  .zima-reserve-page .zima-logo-mark {
-    background: var(--color-zima-canvas);
-    color: var(--color-zima-charcoal);
-  }
-
   .zima-reserve-hero {
     display: flex;
     height: 446px;
@@ -1699,6 +1690,10 @@
     background: var(--color-zima-ink);
   }
 
+  .zima-home .zima-header {
+    background: var(--color-zima-ink);
+  }
+
   .zima-header-inner {
     display: flex;
     width: 1180px;
@@ -1751,7 +1746,6 @@
 
   .zima-nav a.is-active {
     color: var(--color-zima-lime);
-    font-weight: 700;
   }
 
   .zima-nav-cta {
@@ -3820,12 +3814,6 @@
 
   .zima-community-page main > section {
     width: 100%;
-  }
-
-  .zima-community-page .zima-nav-cta {
-    width: 119px;
-    height: 43px;
-    font-size: 14px;
   }
 
   .zima-community-hero {
