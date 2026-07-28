@@ -1,0 +1,48 @@
+---
+import Base from "~/layouts/Base.astro"
+import Seo from "~/components/seo/Seo.astro"
+import SectionZimaSpaces from "~/components/sections/SectionZimaSpaces.astro"
+import type { SeoData } from "~/lib/seo"
+
+const locale = "en" as const
+const title = "Espacios de trabajo | ZIMA Coffee + Cowork"
+const description =
+  "Conoce el cowork flexible, la sala de juntas y la cafetería de ZIMA en Lomas 4ta Sección, San Luis Potosí."
+const canonical = Astro.url.href
+const ogImage = new URL("/images/zima/spaces-hero.png", Astro.url.origin).href
+const seo: SeoData = {
+  title,
+  description,
+  keywords: [
+    "cowork San Luis Potosí",
+    "sala de juntas",
+    "cafetería",
+    "espacios de trabajo",
+  ],
+  canonical,
+  alternates: [
+    { hreflang: "es", href: canonical },
+    { hreflang: "x-default", href: canonical },
+  ],
+  ogTitle: title,
+  ogDescription: description,
+  ogImage,
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterSite: "",
+  twitterCreator: "",
+  jsonLd: {},
+}
+---
+
+<Base
+  locale={locale}
+  htmlLang="es"
+  chrome={false}
+  bodyClass="bg-zima-canvas text-zima-ink"
+>
+  <Fragment slot="head">
+    <Seo {...seo} />
+  </Fragment>
+  <SectionZimaSpaces locale={locale} />
+</Base>

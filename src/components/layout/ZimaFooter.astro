@@ -1,0 +1,81 @@
+---
+const primaryLinks = [
+  { label: "Inicio", href: "/" },
+  { label: "Espacios", href: "/espacios" },
+  { label: "Estudio de podcast", href: "/estudio-podcast" },
+  { label: "Membresías", href: "/membresias" },
+  { label: "Comunidad", href: "/comunidad" },
+  { label: "Reservar", href: "/reservar" },
+]
+
+const spaceLinks = [
+  { label: "Cowork", href: "/espacios#cowork" },
+  { label: "Sala de juntas", href: "/espacios#sala-de-juntas" },
+  { label: "Cafetería", href: "/espacios#cafeteria" },
+  { label: "Estudio de podcast", href: "/estudio-podcast" },
+  { label: "Day Pass", href: "/membresias#day-pass" },
+]
+
+const legalLinks = [
+  "Aviso de privacidad",
+  "Términos",
+  "Política de cancelación",
+  "Cookies",
+]
+---
+
+<footer class="zima-footer">
+  <div class="zima-shell">
+    <div class="zima-footer-grid">
+      <div class="zima-footer-column">
+        <h3>ZIMA</h3>
+        <ul>
+          {
+            primaryLinks.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="zima-footer-column">
+        <h3>Espacios</h3>
+        <ul>
+          {
+            spaceLinks.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="zima-footer-column">
+        <h3>Contacto</h3>
+        <div class="zima-footer-address">
+          <p>Av. Sierra Vista 614 Lomas 4ta Sección SLP</p>
+          <p>WhatsApp: +52 444 ZIMA_WP</p>
+          <p>hola@zimacowork.mx</p>
+        </div>
+      </div>
+      <div class="zima-footer-column">
+        <h3>Legal</h3>
+        <ul>
+          {
+            legalLinks.map((item) => (
+              <li>
+                <a href="#">{item}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="zima-footer-divider"></div>
+    <div class="zima-footer-bottom">
+      <p>© 2025 ZIMA Cowork. Todos los derechos reservados.</p>
+      <p>Trabaja, crea y conecta en San Luis Potosí.</p>
+    </div>
+  </div>
+</footer>

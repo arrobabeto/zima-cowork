@@ -1,0 +1,222 @@
+---
+// SectionZimaSpaces.astro
+//
+// CMS JSON:
+// {
+//   "dataVersion": 1,
+//   "_orbi": { "component": "SectionZimaSpaces" }
+// }
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const coworkBenefits = [
+  "Acceso flexible mediante Day Pass o membresías recurrentes",
+  "Internet simétrico ilimitado de alta velocidad",
+  "Servicio de café de especialidad incluido según tu modalidad",
+  "Ambiente ejecutivo, silencioso, cómodo y colaborativo",
+  "Horas de crédito mensuales para salas de juntas o podcast según tu plan",
+]
+
+const meetingBenefits = [
+  "Mobiliario ergonómico premium y limpieza constante",
+  "Smart TV para presentaciones y pizarrón de cristal para ideas",
+  "Capacidad cómoda de hasta 8 personas",
+]
+---
+
+<div class="zima-spaces-page" lang="es" data-locale={locale}>
+  <ZimaHeader active="espacios" solid />
+
+  <main>
+    <section class="zima-spaces-hero">
+      <div class="zima-shell">
+        <div class="zima-spaces-hero-row">
+          <div class="zima-spaces-hero-title">
+            <p class="zima-eyebrow">Espacios de trabajo en San Luis Potosí</p>
+            <h1>Espacios pensados para cada forma de trabajar</h1>
+          </div>
+          <div class="zima-spaces-hero-copy">
+            <p>
+              En ZIMA puedes trabajar por tu cuenta, reunirte con clientes,
+              tomar café o producir contenido profesional sin cambiar de lugar.
+              Todo en una ubicación privilegiada en Lomas 4ta Sección.
+            </p>
+            <div class="zima-spaces-actions">
+              <a class="zima-button zima-button-dark" href="/reservar">
+                Reservar un espacio
+              </a>
+              <a class="zima-button zima-button-outline" href="/membresias">
+                Ver membresías
+              </a>
+            </div>
+          </div>
+        </div>
+        <img
+          class="zima-spaces-hero-image"
+          src="/images/zima/spaces-hero.png"
+          alt="Interior de ZIMA Coffee + Cowork"
+        />
+      </div>
+    </section>
+
+    <section id="cowork" class="zima-spaces-feature zima-spaces-cowork">
+      <div class="zima-spaces-feature-grid">
+        <div class="zima-spaces-feature-content">
+          <p class="zima-eyebrow">Cowork flexible</p>
+          <h2>Cowork flexible para trabajar mejor en San Luis Potosí</h2>
+          <p class="zima-spaces-body">
+            El área de cowork de ZIMA está pensada para quienes necesitan
+            concentración, internet estable, café premium y un entorno
+            profesional sin las complicaciones ni el costo de rentar una oficina
+            completa. Puedes venir por un solo día o elegir una membresía
+            mensual para mayor constancia.
+          </p>
+          <ul class="zima-spaces-benefits">
+            {
+              coworkBenefits.map((benefit) => (
+                <li>
+                  <span aria-hidden="true">✓</span>
+                  {benefit}
+                </li>
+              ))
+            }
+          </ul>
+          <a class="zima-text-link" href="/membresias">
+            Ver opciones de cowork
+          </a>
+        </div>
+        <img
+          class="zima-spaces-feature-image"
+          src="/images/zima/spaces-cowork.png"
+          alt="Cowork flexible de ZIMA"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section
+      id="sala-de-juntas"
+      class="zima-spaces-feature zima-spaces-meeting"
+    >
+      <div class="zima-spaces-feature-grid is-reversed">
+        <img
+          class="zima-spaces-feature-image"
+          src="/images/zima/spaces-meeting.png"
+          alt="Sala de juntas de ZIMA"
+          loading="lazy"
+        />
+        <div class="zima-spaces-feature-content">
+          <p class="zima-eyebrow">Sala de juntas</p>
+          <h2>Sala de juntas para reuniones claras y productivas</h2>
+          <p class="zima-spaces-body">
+            Reserva de manera sencilla una sala completamente equipada para
+            presentar ideas, cerrar tratos comerciales, dar capacitaciones o
+            sesionar en equipo. La sala de juntas de ZIMA tiene capacidad cómoda
+            para 8 personas.
+          </p>
+          <div class="zima-spaces-price-row">
+            <div>
+              <span>Inversión</span>
+              <strong>$200 MXN <small>/ hora</small></strong>
+            </div>
+            <div>
+              <span>Adicionales</span>
+              <strong class="is-additional">
+                Coffee break opcional <small>por $60 MXN / persona</small>
+              </strong>
+            </div>
+          </div>
+          <ul class="zima-spaces-benefits is-compact">
+            {
+              meetingBenefits.map((benefit) => (
+                <li>
+                  <span aria-hidden="true">✓</span>
+                  {benefit}
+                </li>
+              ))
+            }
+          </ul>
+          <a class="zima-button zima-button-dark" href="/reservar">
+            Reservar sala de juntas
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="cafeteria" class="zima-spaces-feature zima-spaces-cafe">
+      <div class="zima-spaces-feature-grid">
+        <div class="zima-spaces-feature-content">
+          <p class="zima-eyebrow">Barra de café de especialidad</p>
+          <h2>Cafetería para trabajar, pausar y conectar</h2>
+          <p class="zima-spaces-body">
+            La cafetería de ZIMA complementa la experiencia diaria de cowork. No
+            se trata solo de un servicio añadido: es el epicentro social de
+            nuestro espacio. Disfruta de un excelente espresso de especialidad,
+            infusiones seleccionadas o pan horneado del día mientras avanzas con
+            tus pendientes o entablas conversaciones inspiradoras.
+          </p>
+          <a class="zima-text-link" href="/reservar">Visitar ZIMA</a>
+        </div>
+        <img
+          class="zima-spaces-feature-image"
+          src="/images/zima/spaces-cafe.png"
+          alt="Café de especialidad en ZIMA"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <section class="zima-spaces-podcast">
+      <div class="zima-spaces-podcast-copy">
+        <h2>¿Vas a crear contenido? Conoce el estudio de podcast</h2>
+        <p>
+          Además de cowork y sala de juntas, ZIMA cuenta con un estudio
+          profesional acústicamente tratado para grabar podcasts, entrevistas y
+          contenido de audio premium en San Luis Potosí.
+        </p>
+      </div>
+      <a class="zima-button zima-button-lime" href="/estudio-podcast">
+        Ver estudio de podcast
+      </a>
+    </section>
+
+    <section class="zima-spaces-faq">
+      <div class="zima-shell">
+        <h2>Preguntas frecuentes sobre espacios</h2>
+        <div class="zima-spaces-faq-list">
+          <details open>
+            <summary>¿Puedo usar ZIMA sin membresía?</summary>
+            <p>
+              Sí, por supuesto. Puedes usar las instalaciones de ZIMA
+              adquiriendo un Day Pass para el cowork flexible, o reservando de
+              forma independiente espacios específicos como la sala de juntas o
+              el estudio de grabación de podcast por las horas que necesites.
+            </p>
+          </details>
+          <details>
+            <summary>¿La sala de juntas se renta por hora?</summary>
+            <p>
+              Sí. Puedes reservar la sala por hora de acuerdo con la
+              disponibilidad.
+            </p>
+          </details>
+          <details>
+            <summary>¿La cafetería está integrada al cowork?</summary>
+            <p>
+              Sí. La barra de café forma parte de la experiencia diaria de ZIMA.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <ZimaFooter />
+</div>

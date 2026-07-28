@@ -1,0 +1,321 @@
+---
+// SectionZimaPodcast.astro
+//
+// CMS JSON:
+// {
+//   "dataVersion": 1,
+//   "_orbi": { "component": "SectionZimaPodcast" }
+// }
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const equipment = [
+  "Equipo profesional de audio y sonido para 2 personas",
+  "Consola de grabación integral y ecualización nativa",
+  "Capacidad máxima de grabación para 4 personas simultáneas",
+  "Acceso para persona adicional por solo $200 MXN",
+  "Ubicado dentro de ZIMA, facilitando acceso directo al cowork y la cafetería de especialidad",
+]
+
+const useCases = [
+  {
+    icon: "podcast",
+    title: "Podcast de entrevistas",
+    text: "Para conversaciones con invitados, líderes de opinión, clientes o miembros de tu comunidad en un formato cómodo y natural.",
+  },
+  {
+    icon: "social",
+    title: "Contenido para redes",
+    text: "Para cápsulas rápidas, clips educativos, anuncios de campaña, contenido personal o material constante para tu marca.",
+  },
+  {
+    icon: "course",
+    title: "Cursos y contenido experto",
+    text: "Diseñado para profesionistas, coaches, consultores y equipos que necesitan explicar ideas complejas con máxima claridad.",
+  },
+  {
+    icon: "business",
+    title: "Comunicación empresarial",
+    text: "Ideal para comunicados internos, presentaciones corporativas, entrenamiento de personal o entrevistas de marca institucional.",
+  },
+]
+
+const steps = [
+  {
+    number: "01",
+    text: "Elige fecha y hora disponibles en nuestro calendario integrado.",
+  },
+  {
+    number: "02",
+    text: "Confirma el número de personas para preparar el equipamiento necesario.",
+  },
+  {
+    number: "03",
+    text: "Llega a ZIMA 10 minutos antes y prepara tu material con tranquilidad.",
+  },
+  {
+    number: "04",
+    text: "Graba en un espacio acústicamente tratado para producir la mayor calidad.",
+  },
+]
+
+const faqs = [
+  {
+    question: "¿Cuánto cuesta grabar en el estudio de podcast de ZIMA?",
+    answer:
+      "La tarifa base de grabación es de $990 MXN por hora. En caso de requerir personas adicionales en cabina, el costo es de $200 MXN por persona.",
+  },
+  {
+    question: "¿Cuántas personas pueden grabar?",
+    answer:
+      "El estudio está configurado de forma nativa con equipo y microfonía profesional para 2 personas al mismo tiempo, contando con un espacio máximo adaptado para hasta 4 personas en total.",
+  },
+  {
+    question: "¿Puedo usar mis horas de membresía para el podcast?",
+    answer:
+      "Sí, absolutamente. Las horas mensuales que se incluyen en las membresías ZIMA participantes son totalmente intercambiables y pueden ser canjeadas tanto para la sala de juntas como para el estudio de podcast, según disponibilidad.",
+  },
+  {
+    question: "¿El estudio sirve para grabar contenido de marca?",
+    answer:
+      "Sí. Las instalaciones acústicas y el equipo profesional son perfectamente adecuados para grabar podcasts de marca, entrevistas corporativas, cápsulas para cursos, voiceovers e infomerciales con calidad de distribución.",
+  },
+]
+---
+
+<div class="zima-studio-page" lang="es" data-locale={locale}>
+  <ZimaHeader active="podcast" solid />
+
+  <main>
+    <section class="zima-studio-hero">
+      <div class="zima-studio-hero-content">
+        <p class="zima-eyebrow">Estudio profesional de podcast en SLP</p>
+        <h1>Graba tu podcast en un espacio preparado para sonar profesional</h1>
+        <p class="zima-studio-hero-lead">
+          El estudio de podcast de ZIMA está diseñado para creadores, marcas,
+          emprendedores y equipos que quieren producir contenido con mejor
+          sonido, mejor presencia y una experiencia de grabación más ordenada.
+        </p>
+        <div class="zima-studio-hero-actions">
+          <a
+            class="zima-button zima-button-lg zima-button-lime"
+            href="/reservar"
+          >
+            Reservar estudio
+          </a>
+          <a class="zima-studio-light-link" href="#equipo">
+            Ver qué incluye <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="zima-studio-availability">
+          Disponible por hora o mediante horas incluidas en membresías ZIMA.
+        </p>
+      </div>
+    </section>
+
+    <section class="zima-studio-problem">
+      <div class="zima-studio-problem-copy">
+        <h2>Deja de improvisar tus grabaciones</h2>
+        <p class="zima-studio-problem-lead">
+          Grabar en casa, en una oficina ruidosa o con equipo improvisado puede
+          afectar la calidad de tu contenido. En ZIMA tienes un entorno
+          profesional para sentarte, conectar, grabar y salir con una sesión
+          mejor producida.
+        </p>
+        <p>
+          Es ideal para podcasts, entrevistas, cápsulas educativas, contenido de
+          marca, sesiones con invitados y proyectos que necesitan constancia.
+        </p>
+      </div>
+    </section>
+
+    <section id="equipo" class="zima-studio-equipment">
+      <div class="zima-shell">
+        <div class="zima-studio-section-heading">
+          <p class="zima-eyebrow">Equipamiento de punta</p>
+          <h2>Equipo e instalaciones del estudio</h2>
+        </div>
+        <div class="zima-studio-equipment-grid">
+          <img
+            src="/images/zima/podcast-feature.jpg"
+            alt="Equipo profesional del estudio de podcast ZIMA"
+            loading="lazy"
+          />
+          <div class="zima-studio-equipment-copy">
+            <ul>
+              {
+                equipment.map((item) => (
+                  <li>
+                    <span aria-hidden="true">•</span>
+                    {item}
+                  </li>
+                ))
+              }
+            </ul>
+            <p class="zima-studio-note">
+              <strong>Nota importante:</strong> Por favor confirma con nuestro equipo
+              antes de tu sesión la disponibilidad de servicios opcionales como operador
+              de cabina, edición posterior, grabación de video, iluminación profesional,
+              entrega de archivos y almacenamiento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-studio-pricing">
+      <div class="zima-studio-pricing-heading">
+        <h2>Tarifa del estudio de podcast</h2>
+        <p>
+          El estudio profesional de podcast puede reservarse por hora o
+          utilizarse con las horas mensuales incluidas en las membresías
+          participantes.
+        </p>
+      </div>
+      <div class="zima-studio-price-card">
+        <div class="zima-studio-price-top">
+          <p>Reserva por hora</p>
+          <div>
+            <strong>$990 MXN</strong>
+            <span>/ hora</span>
+          </div>
+        </div>
+        <div class="zima-studio-price-divider"></div>
+        <ul>
+          <li>
+            <span aria-hidden="true">✓</span>
+            <span>Persona adicional: <strong>$200 MXN</strong></span>
+          </li>
+          <li>
+            <span aria-hidden="true">✓</span>
+            <span>
+              Las horas incluidas en las membresías pueden usarse en sala de
+              juntas o podcast, según disponibilidad.
+            </span>
+          </li>
+        </ul>
+        <a class="zima-button zima-button-lg zima-button-dark" href="/reservar">
+          Reservar horario
+        </a>
+      </div>
+    </section>
+
+    <section class="zima-studio-use-cases">
+      <div class="zima-shell">
+        <div class="zima-studio-section-heading">
+          <p class="zima-eyebrow">Aplicaciones prácticas</p>
+          <h2>Qué puedes grabar en el estudio</h2>
+        </div>
+        <div class="zima-studio-use-grid">
+          {
+            useCases.map((item) => (
+              <article>
+                <span class="zima-studio-icon" aria-hidden="true">
+                  {item.icon === "podcast" && (
+                    <svg viewBox="0 0 24 24">
+                      <rect x="8" y="3" width="8" height="10" rx="4" />
+                      <path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6" />
+                    </svg>
+                  )}
+                  {item.icon === "social" && (
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="7" width="5" height="13" rx="1" />
+                      <rect x="9.5" y="3" width="5" height="17" rx="1" />
+                      <rect x="16" y="9" width="5" height="11" rx="1" />
+                    </svg>
+                  )}
+                  {item.icon === "course" && (
+                    <svg viewBox="0 0 24 24">
+                      <rect x="7" y="4" width="10" height="16" rx="2" />
+                      <path d="M10 4v16" />
+                    </svg>
+                  )}
+                  {item.icon === "business" && (
+                    <svg viewBox="0 0 24 24">
+                      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  )}
+                </span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-studio-process">
+      <div class="zima-shell">
+        <div class="zima-studio-section-heading">
+          <p class="zima-eyebrow">Paso a paso</p>
+          <h2>Cómo reservar el estudio de podcast</h2>
+        </div>
+        <div class="zima-studio-steps">
+          {
+            steps.map((step) => (
+              <article>
+                <strong>{step.number}</strong>
+                <p>{step.text}</p>
+              </article>
+            ))
+          }
+        </div>
+        <div class="zima-studio-process-actions">
+          <a class="zima-button zima-button-dark" href="/reservar">
+            Reservar estudio
+          </a>
+          <a class="zima-button zima-button-outline" href="/reservar">
+            Preguntar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-studio-faq">
+      <div class="zima-shell">
+        <h2>Preguntas frecuentes sobre el estudio</h2>
+        <div class="zima-studio-faq-list">
+          {
+            faqs.map((item) => (
+              <article>
+                <div>
+                  <h3>{item.question}</h3>
+                  <span aria-hidden="true">+</span>
+                </div>
+                <p>{item.answer}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="zima-studio-cta">
+      <div class="zima-studio-cta-copy">
+        <h2>Tu contenido merece un espacio profesional</h2>
+        <p>Reserva tu próxima sesión de grabación en ZIMA.</p>
+      </div>
+      <div class="zima-studio-cta-actions">
+        <a class="zima-button zima-button-lg" href="/reservar">
+          Reservar estudio
+        </a>
+        <a class="zima-button zima-button-lg" href="/membresias">
+          Conocer membresías con horas incluidas
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <ZimaFooter />
+</div>

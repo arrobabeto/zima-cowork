@@ -7,6 +7,8 @@
 //   "_orbi": { "component": "SectionZimaHome" }
 // }
 import type { Locale } from "~/config/locales"
+import ZimaFooter from "~/components/layout/ZimaFooter.astro"
+import ZimaHeader from "~/components/layout/ZimaHeader.astro"
 
 interface Props {
   locale: Locale
@@ -108,49 +110,10 @@ const testimonials = [
     role: "Creador de Contenido & Emprendedor",
   },
 ]
-
-const footerPrimary = [
-  "Inicio",
-  "Espacios",
-  "Estudio de podcast",
-  "Membresías",
-  "Comunidad",
-  "Reservar",
-]
-
-const footerSpaces = [
-  "Cowork",
-  "Sala de juntas",
-  "Cafetería",
-  "Estudio de podcast",
-  "Day Pass",
-]
-
-const footerLegal = [
-  "Aviso de privacidad",
-  "Términos",
-  "Política de cancelación",
-  "Cookies",
-]
 ---
 
 <div class="zima-home" lang="es" data-locale={locale}>
-  <header class="zima-header">
-    <div class="zima-header-inner">
-      <a class="zima-logo" href="/" aria-label="ZIMA, inicio">
-        <span class="zima-logo-mark">Z</span>
-        <span class="zima-logo-name">ZIMA</span>
-      </a>
-      <nav class="zima-nav" aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#espacios">Espacios</a>
-        <a href="#podcast">Estudio de podcast</a>
-        <a href="#membresias">Membresías</a>
-        <a href="#comunidad">Comunidad</a>
-      </nav>
-      <a class="zima-nav-cta" href="#reservar">Reservar</a>
-    </div>
-  </header>
+  <ZimaHeader active="inicio" />
 
   <section id="inicio" class="zima-section zima-hero">
     <div class="zima-hero-content">
@@ -337,14 +300,74 @@ const footerLegal = [
           Conocer la comunidad
         </a>
       </div>
-      <img
-        class="zima-community-image"
-        src="/images/zima/community-card.jpg"
-        alt="Espacio colaborativo de la comunidad ZIMA"
-        loading="lazy"
-      />
+      <video
+        class="zima-community-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        poster="/images/zima/hero-video-poster.jpg"
+        aria-hidden="true"
+        data-zima-community-video
+      >
+        <source data-src="/videos/zima-hero-video.webm" type="video/webm" />
+      </video>
     </div>
   </section>
+
+  <script is:inline>
+    ;(() => {
+      const communityVideo = document.querySelector(
+        "[data-zima-community-video]",
+      )
+
+      if (
+        !(communityVideo instanceof HTMLVideoElement) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        return
+      }
+
+      const source = communityVideo.querySelector("source[data-src]")
+
+      const loadVideo = () => {
+        if (!(source instanceof HTMLSourceElement) || !source.dataset.src)
+          return
+
+        source.src = source.dataset.src
+        delete source.dataset.src
+        communityVideo.defaultPlaybackRate = 0.6
+        communityVideo.playbackRate = 0.6
+        communityVideo.load()
+        communityVideo.play().catch(() => {})
+      }
+
+      const scheduleVideoLoad = () => {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(loadVideo, { timeout: 2000 })
+        } else {
+          window.setTimeout(loadVideo, 250)
+        }
+      }
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return
+
+            observer.disconnect()
+            scheduleVideoLoad()
+          },
+          { rootMargin: "200px 0px" },
+        )
+
+        observer.observe(communityVideo)
+      } else {
+        scheduleVideoLoad()
+      }
+    })()
+  </script>
 
   <section class="zima-section zima-testimonials">
     <div class="zima-shell">
@@ -545,59 +568,5 @@ const footerLegal = [
     </div>
   </section>
 
-  <footer class="zima-footer">
-    <div class="zima-shell">
-      <div class="zima-footer-grid">
-        <div class="zima-footer-column">
-          <h3>ZIMA</h3>
-          <ul>
-            {
-              footerPrimary.map((item) => (
-                <li>
-                  <a href="#">{item}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <div class="zima-footer-column">
-          <h3>Espacios</h3>
-          <ul>
-            {
-              footerSpaces.map((item) => (
-                <li>
-                  <a href="#">{item}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <div class="zima-footer-column">
-          <h3>Contacto</h3>
-          <div class="zima-footer-address">
-            <p>Av. Sierra Vista 614 Lomas 4ta Sección SLP</p>
-            <p>WhatsApp: +52 444 ZIMA_WP</p>
-            <p>hola@zimacowork.mx</p>
-          </div>
-        </div>
-        <div class="zima-footer-column">
-          <h3>Legal</h3>
-          <ul>
-            {
-              footerLegal.map((item) => (
-                <li>
-                  <a href="#">{item}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-      <div class="zima-footer-divider"></div>
-      <div class="zima-footer-bottom">
-        <p>© 2025 ZIMA Cowork. Todos los derechos reservados.</p>
-        <p>Trabaja, crea y conecta en San Luis Potosí.</p>
-      </div>
-    </div>
-  </footer>
+  <ZimaFooter />
 </div>
