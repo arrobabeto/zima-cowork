@@ -2,7 +2,6 @@ import type { Post } from "~/types/post"
 import { normalizeSections } from "~/lib/normalize-sections"
 import { orbitypeSql } from "./client"
 import { hasSqlConfigured, isMockMode } from "./config"
-import { findSeedPost, seedPosts } from "./seed"
 
 function normalizePost(post: Post): Post {
   return { ...post, sections: normalizeSections(post.sections) }
@@ -23,11 +22,7 @@ export async function listPosts(
   const offset = (page - 1) * limit
 
   if (isMockMode() || !hasSqlConfigured()) {
-    const all = seedPosts().filter((p) => (p.status?.value ?? "") === status)
-    return {
-      posts: all.slice(offset, offset + limit).map(normalizePost),
-      total: all.length,
-    }
+    return { posts: [], total: 0 }
   }
 
   try {
@@ -49,18 +44,13 @@ export async function listPosts(
     return { posts: posts.map(normalizePost), total }
   } catch (error) {
     console.error("[orbitype] listPosts failed:", error)
-    const all = seedPosts().filter((p) => (p.status?.value ?? "") === status)
-    return {
-      posts: all.slice(offset, offset + limit).map(normalizePost),
-      total: all.length,
-    }
+    return { posts: [], total: 0 }
   }
 }
 
 export async function getPost(id: string): Promise<Post | null> {
   if (isMockMode() || !hasSqlConfigured()) {
-    const seeded = findSeedPost(id)
-    return seeded ? normalizePost(seeded) : null
+    return null
   }
 
   try {
@@ -70,12 +60,10 @@ export async function getPost(id: string): Promise<Post | null> {
     )
     const row = rows[0]
     if (row) return normalizePost(row)
-    const seeded = findSeedPost(id)
-    return seeded ? normalizePost(seeded) : null
+    return null
   } catch (error) {
     console.error("[orbitype] getPost failed:", error)
-    const seeded = findSeedPost(id)
-    return seeded ? normalizePost(seeded) : null
+    return null
   }
 }
 
@@ -83,9 +71,7 @@ export async function listPublishedPostIds(): Promise<
   Array<Pick<Post, "id" | "title" | "updated_at">>
 > {
   if (isMockMode() || !hasSqlConfigured()) {
-    return seedPosts()
-      .filter((p) => p.status?.value === "published")
-      .map(({ id, title, updated_at }) => ({ id, title, updated_at }))
+    return []
   }
 
   try {

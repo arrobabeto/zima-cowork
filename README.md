@@ -60,7 +60,7 @@ Start with the blueprint. It is the source of truth for architecture, the Orbity
 2. Replace `public/favicon.svg` and add `public/og-default.jpg`.
 3. Fill in the `PUBLIC_*` variables in `.env`.
 4. Create an Orbitype SQL connector and API key at [app.orbitype.com](https://app.orbitype.com/settings/api-keys), set `ORBITYPE_API_SQL_KEY`, and set `ORBITYPE_MOCK=false`.
-5. Run the schema installer from the welcome screen, then the seeder.
+5. Create your first page in Orbitype.
 6. Copy `.cursor/mcp.json.example` to `.cursor/mcp.json`, add your keys, and reload MCP in Cursor.
 7. Set design tokens in `src/styles/global.css`.
 8. Change the site language in `src/config/locales.ts`.

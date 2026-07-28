@@ -1,0 +1,603 @@
+---
+// SectionZimaHome.astro
+//
+// CMS JSON:
+// {
+//   "dataVersion": 1,
+//   "_orbi": { "component": "SectionZimaHome" }
+// }
+import type { Locale } from "~/config/locales"
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+
+const quickCards = [
+  {
+    icon: "▣",
+    title: "Trabajar por día o por mes",
+    text: "Elige un Day Pass si necesitas venir hoy o una membresía si buscas un lugar constante para trabajar, concentrarte y conectar.",
+    link: "Ver planes",
+  },
+  {
+    icon: "▤",
+    title: "Reservar una sala de juntas",
+    text: "Reúnete con clientes, presenta proyectos o trabaja con tu equipo en una sala equipada para sesiones claras y productivas.",
+    link: "Reservar sala",
+  },
+  {
+    icon: "●",
+    title: "Grabar contenido profesional",
+    text: "Produce tu podcast, entrevistas, cápsulas o contenido de marca en un estudio equipado para audio profesional.",
+    link: "Conocer el estudio",
+  },
+]
+
+const spaceCards = [
+  {
+    image: "/images/zima/space-cowork.jpg",
+    alt: "Área de cowork de ZIMA",
+    title: "Cowork",
+    text: "Espacios flexibles para trabajar por día o mediante membresía, con internet ilimitado, café incluido y ambiente profesional.",
+    link: "Explorar cowork",
+  },
+  {
+    image: "/images/zima/space-meeting.jpg",
+    alt: "Sala de juntas de ZIMA",
+    title: "Sala de juntas",
+    text: "Sala para hasta 8 personas con mobiliario, limpieza, internet, Smart TV y pizarrón.",
+    link: "Reservar sala",
+  },
+  {
+    image: "/images/zima/space-podcast.jpg",
+    alt: "Estudio de podcast de ZIMA",
+    title: "Estudio de podcast",
+    text: "Estudio profesional para grabar podcasts y contenido de audio con equipo para 2 personas, consola integral y capacidad máxima para 4 personas.",
+    link: "Ver estudio",
+  },
+  {
+    image: "/images/zima/space-cafe.jpg",
+    alt: "Cafetería de ZIMA",
+    title: "Cafetería",
+    text: "Un punto de encuentro dentro de ZIMA para trabajar con café, recibir visitas o tomar una pausa sin salir del espacio.",
+    link: "Ver cafetería",
+  },
+]
+
+const plans = [
+  {
+    title: "Day Pass",
+    price: "Desde $280 MXN",
+    text: "Acceso por día con internet ilimitado y café incluido",
+    cta: "Ver Day Pass",
+  },
+  {
+    title: "Membresías individuales",
+    price: "Desde $900 MXN/mes",
+    text: "Acceso al cowork y horas mensuales para sala de juntas o podcast",
+    cta: "Comparar membresías",
+    featured: true,
+  },
+  {
+    title: "Equipos",
+    price: "Plan Networking",
+    text: "Hasta 6 personas. Acceso al cowork y 12 horas mensuales para sala o podcast",
+    cta: "Ver plan para equipos",
+  },
+]
+
+const testimonials = [
+  {
+    quote:
+      '"Encontré un lugar donde puedo trabajar concentrado y recibir clientes sin improvisar."',
+    name: "Rodrigo Alcocer",
+    role: "Consultor Independiente",
+  },
+  {
+    quote:
+      '"La sala y el ambiente hacen que una reunión se sienta mucho más profesional."',
+    name: "Ana Lucía Ortiz",
+    role: "Directora en Estudio Lomas",
+  },
+  {
+    quote:
+      '"Tener un estudio de podcast dentro del cowork abre muchas posibilidades para crear contenido."',
+    name: "Santiago Torres",
+    role: "Creador de Contenido & Emprendedor",
+  },
+]
+
+const footerPrimary = [
+  "Inicio",
+  "Espacios",
+  "Estudio de podcast",
+  "Membresías",
+  "Comunidad",
+  "Reservar",
+]
+
+const footerSpaces = [
+  "Cowork",
+  "Sala de juntas",
+  "Cafetería",
+  "Estudio de podcast",
+  "Day Pass",
+]
+
+const footerLegal = [
+  "Aviso de privacidad",
+  "Términos",
+  "Política de cancelación",
+  "Cookies",
+]
+---
+
+<div class="zima-home" lang="es" data-locale={locale}>
+  <header class="zima-header">
+    <div class="zima-header-inner">
+      <a class="zima-logo" href="/" aria-label="ZIMA, inicio">
+        <span class="zima-logo-mark">Z</span>
+        <span class="zima-logo-name">ZIMA</span>
+      </a>
+      <nav class="zima-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#espacios">Espacios</a>
+        <a href="#podcast">Estudio de podcast</a>
+        <a href="#membresias">Membresías</a>
+        <a href="#comunidad">Comunidad</a>
+      </nav>
+      <a class="zima-nav-cta" href="#reservar">Reservar</a>
+    </div>
+  </header>
+
+  <section id="inicio" class="zima-section zima-hero">
+    <div class="zima-hero-content">
+      <p class="zima-eyebrow">
+        Cowork, café y estudio de podcast en San Luis Potosí
+      </p>
+      <h1 class="zima-hero-title">
+        Trabaja, crea y conecta desde un espacio hecho para avanzar
+      </h1>
+      <p class="zima-hero-lead">
+        ZIMA reúne cowork, cafetería, sala de juntas y un estudio profesional de
+        podcast en una sola ubicación en Lomas 4ta Sección. Ven por un día,
+        reserva una sala o encuentra una membresía para trabajar mejor.
+      </p>
+      <div class="zima-intentions" aria-label="Elige tu intención">
+        <a class="zima-intention" href="#membresias">Quiero trabajar</a>
+        <a class="zima-intention" href="#espacios">Quiero reunirme</a>
+        <a class="zima-intention" href="#podcast"> Quiero grabar un podcast </a>
+      </div>
+      <div class="zima-actions">
+        <a class="zima-button zima-button-lg zima-button-lime" href="#reservar">
+          Reservar espacio
+        </a>
+        <a class="zima-text-link" href="#membresias">Ver membresías</a>
+      </div>
+    </div>
+    <p class="zima-hero-address">
+      <span class="zima-pin" aria-hidden="true">●</span>
+      Av. Sierra Vista 614, Lomas 4ta Sección, San Luis Potosí
+    </p>
+  </section>
+
+  <section class="zima-section zima-quick">
+    <div class="zima-shell">
+      <h2 class="zima-heading">¿Qué quieres hacer hoy en ZIMA?</h2>
+      <div class="zima-quick-grid">
+        {
+          quickCards.map((card) => (
+            <article class="zima-quick-card">
+              <span class="zima-icon-tile" aria-hidden="true">
+                {card.icon}
+              </span>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              <a class="zima-text-link" href="#reservar">
+                {card.link}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="espacios" class="zima-section zima-spaces">
+    <div class="zima-shell">
+      <p class="zima-eyebrow">Nuestros espacios</p>
+      <h2 class="zima-heading">Espacios para trabajar, reunirte y crear</h2>
+      <p class="zima-section-lead">
+        ZIMA está diseñado para acompañar distintos momentos de tu día:
+        concentración individual, juntas importantes, producción de contenido y
+        pausas con buen café.
+      </p>
+      <div class="zima-space-grid">
+        {
+          spaceCards.map((card) => (
+            <article class="zima-space-card">
+              <img src={card.image} alt={card.alt} loading="lazy" />
+              <div class="zima-space-card-body">
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+                <a class="zima-text-link" href="#reservar">
+                  {card.link}
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="podcast" class="zima-section zima-podcast">
+    <div class="zima-shell zima-split">
+      <img
+        class="zima-feature-image"
+        src="/images/zima/podcast-feature.jpg"
+        alt="Estudio profesional de podcast de ZIMA"
+        loading="lazy"
+      />
+      <div class="zima-feature-copy">
+        <p class="zima-eyebrow">Estudio profesional de podcast</p>
+        <h2 class="zima-heading">Tu podcast no necesita sonar improvisado</h2>
+        <p class="zima-primary-copy">
+          En ZIMA puedes grabar entrevistas, episodios, cápsulas y contenido
+          para redes en un espacio preparado para producir con más claridad. El
+          estudio incluye equipo profesional de audio y sonido para 2 personas,
+          consola integral de grabación y capacidad para sesiones de hasta 4
+          personas.
+        </p>
+        <p class="zima-secondary-copy">
+          Si tu marca, proyecto o comunidad necesita contenido constante, ZIMA
+          te da un lugar profesional para grabarlo sin montar un estudio desde
+          cero.
+        </p>
+        <div class="zima-actions">
+          <a class="zima-button zima-button-dark" href="#reservar">
+            Reservar estudio
+          </a>
+          <a class="zima-text-link" href="#espacios">
+            Ver equipo e instalaciones
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="membresias" class="zima-section zima-memberships">
+    <div class="zima-shell">
+      <p class="zima-eyebrow">Membresías y Day Pass</p>
+      <h2 class="zima-heading">Elige cómo quieres trabajar en ZIMA</h2>
+      <p>
+        Ven por un día, trabaja de forma recurrente o comparte el espacio con tu
+        equipo. En ZIMA tienes opciones flexibles.
+      </p>
+      <div class="zima-plan-grid">
+        {
+          plans.map((plan) => (
+            <article
+              class:list={["zima-plan-card", plan.featured && "is-featured"]}
+            >
+              <h3>{plan.title}</h3>
+              <p class="zima-plan-price">{plan.price}</p>
+              <p>{plan.text}</p>
+              <a
+                class:list={[
+                  "zima-button",
+                  plan.featured ? "zima-button-dark" : "zima-button-outline",
+                ]}
+                href="#reservar"
+              >
+                {plan.cta}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+      <div class="zima-benefits">
+        <span class="zima-benefit"
+          ><span class="zima-check">✓</span> Internet ilimitado</span
+        >
+        <span class="zima-benefit"
+          ><span class="zima-check">✓</span> Café incluido</span
+        >
+        <span class="zima-benefit"
+          ><span class="zima-check">✓</span> Acceso al cowork</span
+        >
+        <span class="zima-benefit"
+          ><span class="zima-check">✓</span> Horas para salas y podcast según plan</span
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="comunidad" class="zima-section zima-community">
+    <div class="zima-community-grid">
+      <div>
+        <p class="zima-eyebrow">Comunidad ZIMA</p>
+        <h2 class="zima-heading">
+          Un cowork también se trata de quién trabaja cerca de ti
+        </h2>
+        <p class="zima-community-copy">
+          ZIMA es un espacio para freelancers, emprendedores, equipos y
+          creadores que quieren trabajar con estructura sin perder cercanía.
+          Aquí puedes llegar a concentrarte, reunirte con alguien clave o
+          encontrar nuevas conversaciones alrededor de una taza de café.
+        </p>
+        <p class="zima-community-copy">
+          A través de comunidad, eventos y contenido como De Cero a la ZIMA, el
+          espacio busca conectar ideas locales con personas que están
+          construyendo algo propio.
+        </p>
+        <a class="zima-button zima-button-dark" href="#comunidad">
+          Conocer la comunidad
+        </a>
+      </div>
+      <img
+        class="zima-community-image"
+        src="/images/zima/community-card.jpg"
+        alt="Espacio colaborativo de la comunidad ZIMA"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section class="zima-section zima-testimonials">
+    <div class="zima-shell">
+      <h2 class="zima-heading">
+        Lo que se empieza en ZIMA puede crecer fuera de ZIMA
+      </h2>
+      <div class="zima-testimonial-grid">
+        {
+          testimonials.map((testimonial) => (
+            <article class="zima-testimonial-card">
+              <blockquote class="zima-quote">{testimonial.quote}</blockquote>
+              <div class="zima-testimonial-divider" />
+              <div class="zima-person-row">
+                <div>
+                  <p class="zima-person">{testimonial.name}</p>
+                  <p class="zima-role">{testimonial.role}</p>
+                </div>
+                <span class="zima-pending">PENDIENTE DE APROBACIÓN</span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="reservar" class="zima-section zima-lead-capture">
+    <div class="zima-shell zima-lead-grid">
+      <div>
+        <img
+          class="zima-form-photo"
+          src="/images/zima/form-photo.jpg"
+          alt="Laptop y café en un espacio de trabajo ZIMA"
+          loading="lazy"
+        />
+        <p class="zima-photo-note">
+          También puedes reservar directamente si ya sabes qué espacio
+          necesitas.
+        </p>
+      </div>
+      <div class="zima-form-panel">
+        <h2>Cuéntanos qué necesitas y te ayudamos a elegir el espacio ideal</h2>
+        <p class="zima-form-intro">
+          Déjanos tus datos y el equipo de ZIMA te orientará con la mejor opción
+          para trabajar, reunirte, grabar o visitar el cowork.
+        </p>
+        <form class="zima-form" method="post" action="/api/forms/contact">
+          <input class="zima-field" name="name" placeholder="Nombre" />
+          <input
+            class="zima-field"
+            type="email"
+            name="email"
+            placeholder="Correo"
+          />
+          <input class="zima-field" name="phone" placeholder="WhatsApp" />
+          <input
+            class="zima-field"
+            name="company"
+            placeholder="Empresa o proyecto"
+          />
+          <select class="zima-select" name="interest" aria-label="Me interesa">
+            <option>Me interesa: Cowork</option>
+            <option>Sala de juntas</option>
+            <option>Estudio de podcast</option>
+            <option>Membresía</option>
+          </select>
+          <input
+            class="zima-field"
+            name="people"
+            placeholder="Número de personas"
+          />
+          <textarea
+            class="zima-textarea zima-form-wide"
+            name="message"
+            placeholder="Mensaje"></textarea>
+          <label class="zima-privacy zima-form-wide">
+            <input type="checkbox" name="privacy" />
+            <span>
+              Acepto el Aviso de Privacidad y el procesamiento de mis datos de
+              contacto.
+            </span>
+          </label>
+          <button
+            class="zima-button zima-button-dark zima-form-submit zima-form-wide"
+            type="submit"
+          >
+            Solicitar información
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="zima-section zima-location">
+    <div class="zima-shell">
+      <p class="zima-eyebrow">Ubicación</p>
+      <h2 class="zima-heading">
+        ZIMA está en Lomas 4ta Sección, San Luis Potosí
+      </h2>
+      <p class="zima-section-lead">
+        Visítanos en Av. Sierra Vista 614, una zona práctica para trabajar,
+        reunirte y recibir visitas dentro de San Luis Potosí.
+      </p>
+      <div class="zima-location-grid">
+        <img
+          class="zima-map"
+          src="/images/zima/map.jpg"
+          alt="Mapa de Av. Sierra Vista 614, San Luis Potosí"
+          loading="lazy"
+        />
+        <div class="zima-location-info">
+          <div>
+            <p class="zima-info-label">Dirección</p>
+            <p class="zima-info-value is-strong">
+              Av. Sierra Vista 614, Lomas 4ta Sección
+            </p>
+          </div>
+          <div>
+            <p class="zima-info-label">Horarios</p>
+            <p class="zima-info-value">
+              Lunes a Viernes: 8:00 AM - 8:00 PM • Sábados: 9:00 AM - 2:00 PM
+            </p>
+          </div>
+          <div>
+            <p class="zima-info-label">Contacto</p>
+            <p class="zima-info-value">
+              WhatsApp: +52 444 ZIMA_WP • contacto@zimacowork.mx
+            </p>
+          </div>
+          <div class="zima-location-actions">
+            <a class="zima-button zima-button-dark" href="#reservar">
+              Agendar una visita
+            </a>
+            <a class="zima-button zima-button-outline" href="#">
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="zima-section zima-faq">
+    <div class="zima-shell">
+      <h2 class="zima-heading">Preguntas frecuentes sobre ZIMA</h2>
+      <div class="zima-faq-list">
+        <details class="zima-faq-item" open>
+          <summary>¿Dónde está ZIMA?</summary>
+          <p class="zima-faq-answer">
+            ZIMA está en Av. Sierra Vista 614, Lomas 4ta Sección, San Luis
+            Potosí.
+          </p>
+        </details>
+        <details class="zima-faq-item">
+          <summary>¿Puedo ir solo por un día?</summary>
+          <p class="zima-faq-answer">
+            Sí. Puedes adquirir un Day Pass y trabajar en el cowork durante el
+            día.
+          </p>
+        </details>
+        <details class="zima-faq-item">
+          <summary>¿Anula ZIMA tiene estudio de podcast?</summary>
+          <p class="zima-faq-answer">
+            Sí. El estudio se reserva por hora y cuenta con equipo profesional.
+          </p>
+        </details>
+        <details class="zima-faq-item">
+          <summary>¿Las membresías incluyen horas de sala?</summary>
+          <p class="zima-faq-answer">
+            Algunas membresías incluyen horas para sala de juntas o estudio de
+            podcast.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="zima-section zima-final-cta">
+    <div class="zima-shell">
+      <h2>
+        Tu siguiente reunión, jornada de trabajo o grabación puede empezar aquí
+      </h2>
+      <p>
+        Reserva tu espacio, agenda una visita o compara las membresías para
+        encontrar la mejor forma de usar ZIMA.
+      </p>
+      <div class="zima-actions">
+        <a class="zima-button zima-button-lg zima-button-lime" href="#reservar">
+          Reservar espacio
+        </a>
+        <a
+          class="zima-button zima-button-lg zima-button-outline-light"
+          href="#membresias"
+        >
+          Ver membresías
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="zima-footer">
+    <div class="zima-shell">
+      <div class="zima-footer-grid">
+        <div class="zima-footer-column">
+          <h3>ZIMA</h3>
+          <ul>
+            {
+              footerPrimary.map((item) => (
+                <li>
+                  <a href="#">{item}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="zima-footer-column">
+          <h3>Espacios</h3>
+          <ul>
+            {
+              footerSpaces.map((item) => (
+                <li>
+                  <a href="#">{item}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="zima-footer-column">
+          <h3>Contacto</h3>
+          <div class="zima-footer-address">
+            <p>Av. Sierra Vista 614 Lomas 4ta Sección SLP</p>
+            <p>WhatsApp: +52 444 ZIMA_WP</p>
+            <p>hola@zimacowork.mx</p>
+          </div>
+        </div>
+        <div class="zima-footer-column">
+          <h3>Legal</h3>
+          <ul>
+            {
+              footerLegal.map((item) => (
+                <li>
+                  <a href="#">{item}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div class="zima-footer-divider"></div>
+      <div class="zima-footer-bottom">
+        <p>© 2025 ZIMA Cowork. Todos los derechos reservados.</p>
+        <p>Trabaja, crea y conecta en San Luis Potosí.</p>
+      </div>
+    </div>
+  </footer>
+</div>

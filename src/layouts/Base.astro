@@ -15,9 +15,12 @@ import "~/styles/global.css"
 
 interface Props {
   locale: Locale
+  htmlLang?: string
+  chrome?: boolean
+  bodyClass?: string
 }
 
-const { locale } = Astro.props
+const { locale, htmlLang = locale, chrome = true, bodyClass = "" } = Astro.props
 
 const orgGraph = {
   "@context": "https://schema.org",
@@ -40,7 +43,7 @@ const orgGraph = {
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,9 +52,9 @@ const orgGraph = {
     <JsonLd data={orgGraph} />
     <ConsentScripts />
   </head>
-  <body class="flex min-h-screen flex-col">
-    <Navigation locale={locale} />
+  <body class:list={["flex min-h-screen flex-col", bodyClass]}>
+    {chrome && <Navigation locale={locale} />}
     <slot />
-    <Footer locale={locale} />
+    {chrome && <Footer locale={locale} />}
   </body>
 </html>

@@ -2,7 +2,6 @@ import type { Page } from "~/types/page"
 import { normalizeSections } from "~/lib/normalize-sections"
 import { orbitypeSql } from "./client"
 import { hasSqlConfigured, isMockMode } from "./config"
-import { findSeedPage, seedPages } from "./seed"
 
 function normalizePage(page: Page): Page {
   return { ...page, sections: normalizeSections(page.sections) }
@@ -10,8 +9,7 @@ function normalizePage(page: Page): Page {
 
 export async function getPage(slug: string): Promise<Page | null> {
   if (isMockMode() || !hasSqlConfigured()) {
-    const seeded = findSeedPage(slug)
-    return seeded ? normalizePage(seeded) : null
+    return null
   }
 
   try {
@@ -21,13 +19,10 @@ export async function getPage(slug: string): Promise<Page | null> {
     )
     const row = rows[0]
     if (row) return normalizePage(row)
-    // Empty CMS: fall back to seed for known slugs (welcome on home).
-    const seeded = findSeedPage(slug)
-    return seeded ? normalizePage(seeded) : null
+    return null
   } catch (error) {
-    console.error("[orbitype] getPage failed, serving fallback:", error)
-    const seeded = findSeedPage(slug)
-    return seeded ? normalizePage(seeded) : null
+    console.error("[orbitype] getPage failed:", error)
+    return null
   }
 }
 
@@ -35,7 +30,7 @@ export async function listPageSlugs(): Promise<
   Array<Pick<Page, "slug" | "updated_at">>
 > {
   if (isMockMode() || !hasSqlConfigured()) {
-    return seedPages().map(({ slug, updated_at }) => ({ slug, updated_at }))
+    return []
   }
 
   try {
@@ -44,6 +39,6 @@ export async function listPageSlugs(): Promise<
     )
   } catch (error) {
     console.error("[orbitype] listPageSlugs failed:", error)
-    return seedPages().map(({ slug, updated_at }) => ({ slug, updated_at }))
+    return []
   }
 }

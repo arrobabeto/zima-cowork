@@ -1,0 +1,8 @@
+interface:
+  display_name: "Zima Orbitype API"
+  short_description: "CMS SQL over Orbitype HTTP (no MCP)"
+  brand_color: "#0F766E"
+  default_prompt: "Use $zima-orbitype-api to probe connector context and list pages."
+
+policy:
+  allow_implicit_invocation: true
