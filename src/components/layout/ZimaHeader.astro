@@ -41,5 +41,27 @@ const navItems: NavItem[] = [
       }
     </nav>
     <a class="zima-nav-cta" href="/reservar">Reservar</a>
+    <details class="zima-mobile-menu">
+      <summary aria-label="Abrir menú de navegación">
+        <span class="zima-mobile-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+      <nav class="zima-mobile-nav" aria-label="Navegación móvil">
+        {
+          navItems.map((item) => (
+            <a
+              class:list={{ "is-active": item.key === active }}
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a class="zima-mobile-nav-cta" href="/reservar">Reservar</a>
+      </nav>
+    </details>
   </div>
 </header>
